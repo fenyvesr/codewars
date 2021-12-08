@@ -8,8 +8,6 @@
 ***     \par    File description
 ***                  This source tests the functionality implemented in returnLocation.h
 ***
-***     \warning
-***
 **/
 
 #include <cassert>

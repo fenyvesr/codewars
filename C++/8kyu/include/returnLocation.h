@@ -8,8 +8,6 @@
 ***     \par    File description
 ***                  This header contains the solution for https://www.codewars.com/kata/57f037927b45ef77b3000260/ and its test function.
 ***
-***     \warning
-***
 **/
 
 #ifndef _RETURN_LOCATION_H_
