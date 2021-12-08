@@ -16,5 +16,7 @@
 int main(){
     returnLocationTest();
     convertTheScoreTest();
+    cigarStringsEasyTest();
+    redactedTest();
     return 0;
 }

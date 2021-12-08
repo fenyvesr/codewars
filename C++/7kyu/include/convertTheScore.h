@@ -3,7 +3,7 @@
 ***
 ***     \authors     Robert Fenyvesi <fenyvesr@gmail.com>
 ***
-***     \brief       Solution for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d/
+***     \brief       Solution for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d
 ***
 ***     \par    Description:
 ***                  You are working at a lower league football stadium and you've been tasked with automating the scoreboard.\n
@@ -21,15 +21,14 @@
 
 #include <vector>
 #include <string>
-#include <cassert>
 
 /*!
     \brief       This function extracts the score information from a string
     \param[in] s Description of the currect scores.
     \returns     The actual scores as numerical values in a vector.
     \par Examples:
-         "new score: two three" shell return {2,3}\n
-         "Arsenal just conceded another goal, two nil" shell return {2,0}
+         "new score: two three" a return {2,3}\n
+         "Arsenal just conceded another goal, two nil" shall return {2,0}
     \warning The decsription of the scores has to contain exactly two numbers, which can be the followings,
              "nil", "one", "two", "three", "four", "five", "six", "seven", "eight" or "nine".
 */

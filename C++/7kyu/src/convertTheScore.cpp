@@ -3,17 +3,17 @@
 ***
 ***     \authors     Robert Fenyvesi <fenyvesr@gmail.com>
 ***
-***     \brief       Solution implementation for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d/
+***     \brief       Solution implementation for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d/ and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d and its test function.
 ***
 **/
-
 #include "convertTheScore.h"
 
 #include <regex>
 #include <map>
+#include <cassert>
 
 /*! \brief This string contains the different possible number strings */
 std::string numbers = "(nil|one|two|three|four|five|six|seven|eight|nine)";

@@ -14,5 +14,7 @@
 #define _7KYU_H_
 
 #include "convertTheScore.h"
+#include "cigarStringsEasy.h"
+#include "redacted.h"
 
 #endif /* _7KYU_H_ */
