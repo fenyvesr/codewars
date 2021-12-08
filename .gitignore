@@ -33,3 +33,6 @@
 
 # Build directories
 C++/build
+
+# Documentations
+C++/doc
