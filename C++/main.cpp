@@ -19,5 +19,6 @@ int main(){
     cigarStringsEasyTest();
     redactedTest();
     subarrayElementsSumTest();
+    queueTimeCounterTest();
     return 0;
 }

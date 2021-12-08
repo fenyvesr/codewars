@@ -17,5 +17,6 @@
 #include "cigarStringsEasy.h"
 #include "redacted.h"
 #include "subarrayElementsSum.h"
+#include "queueTimeCounter.h"
 
 #endif /* _7KYU_H_ */
