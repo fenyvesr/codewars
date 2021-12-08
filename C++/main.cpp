@@ -18,5 +18,6 @@ int main(){
     convertTheScoreTest();
     cigarStringsEasyTest();
     redactedTest();
+    subarrayElementsSumTest();
     return 0;
 }

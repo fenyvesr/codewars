@@ -3,7 +3,7 @@
 ***
 ***     \authors     Robert Fenyvesi <fenyvesr@gmail.com>
 ***
-***     \brief       Solution implementation for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d
+***     \brief       Solution for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d
 ***
 ***     \par    File description
 ***                  This source contains the solution implementation for https://www.codewars.com/kata/5b6c220fa0a661fbf200005d and its test function.

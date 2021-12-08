@@ -16,5 +16,6 @@
 #include "convertTheScore.h"
 #include "cigarStringsEasy.h"
 #include "redacted.h"
+#include "subarrayElementsSum.h"
 
 #endif /* _7KYU_H_ */
