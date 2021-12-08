@@ -1,6 +1,8 @@
 #include <iostream>
 
+#include "8kyu.h"
+
 int main(){
-    std::cout << "Hello world!" << std::endl;
+    returnLocationTest();
     return 0;
 }
