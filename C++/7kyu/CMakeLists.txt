@@ -1,9 +1,10 @@
 include_directories("${PROJECT_SOURCE_DIR}/7kyu/include")
 
-add_library(7kyu src/convertTheScore.cpp
+add_library(7kyu src/redacted.cpp
+                 src/sumOfABeach.cpp
+                 src/convertTheScore.cpp
+                 src/offloadYourWork.cpp
                  src/cigarStringsEasy.cpp
-                 src/redacted.cpp
-                 src/subarrayElementsSum.cpp
                  src/queueTimeCounter.cpp
-                 src/everyPossibleSumOfTwoDigits.cpp
-                 src/offloadYourWork.cpp)
+                 src/subarrayElementsSum.cpp
+                 src/everyPossibleSumOfTwoDigits.cpp)

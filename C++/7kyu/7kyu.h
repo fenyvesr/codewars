@@ -13,12 +13,13 @@
 #ifndef _7KYU_H_
 #define _7KYU_H_
 
-#include "convertTheScore.h"
-#include "cigarStringsEasy.h"
 #include "redacted.h"
-#include "subarrayElementsSum.h"
-#include "queueTimeCounter.h"
-#include "everyPossibleSumOfTwoDigits.h"
+#include "sumOfABeach.h"
+#include "convertTheScore.h"
 #include "offloadYourWork.h"
+#include "cigarStringsEasy.h"
+#include "queueTimeCounter.h"
+#include "subarrayElementsSum.h"
+#include "everyPossibleSumOfTwoDigits.h"
 
 #endif /* _7KYU_H_ */

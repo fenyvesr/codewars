@@ -14,13 +14,14 @@
 #include "7kyu.h"
 
 int main(){
+    redactedTest();
+    sumOfABeachTest();
     returnLocationTest();
     convertTheScoreTest();
-    cigarStringsEasyTest();
-    redactedTest();
-    subarrayElementsSumTest();
-    queueTimeCounterTest();
-    everyPossibleSumOfTwoDigitsTest();
     offloadYourWorkTest();
+    cigarStringsEasyTest();
+    queueTimeCounterTest();
+    subarrayElementsSumTest();
+    everyPossibleSumOfTwoDigitsTest();
     return 0;
 }
