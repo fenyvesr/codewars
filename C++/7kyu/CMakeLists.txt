@@ -5,4 +5,5 @@ add_library(7kyu src/convertTheScore.cpp
                  src/redacted.cpp
                  src/subarrayElementsSum.cpp
                  src/queueTimeCounter.cpp
-                 src/everyPossibleSumOfTwoDigits.cpp)
+                 src/everyPossibleSumOfTwoDigits.cpp
+                 src/offloadYourWork.cpp)

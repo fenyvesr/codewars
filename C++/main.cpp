@@ -21,5 +21,6 @@ int main(){
     subarrayElementsSumTest();
     queueTimeCounterTest();
     everyPossibleSumOfTwoDigitsTest();
+    offloadYourWorkTest();
     return 0;
 }

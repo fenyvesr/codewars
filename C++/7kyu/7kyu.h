@@ -19,5 +19,6 @@
 #include "subarrayElementsSum.h"
 #include "queueTimeCounter.h"
 #include "everyPossibleSumOfTwoDigits.h"
+#include "offloadYourWork.h"
 
 #endif /* _7KYU_H_ */
