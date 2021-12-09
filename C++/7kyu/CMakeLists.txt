@@ -4,4 +4,5 @@ add_library(7kyu src/convertTheScore.cpp
                  src/cigarStringsEasy.cpp
                  src/redacted.cpp
                  src/subarrayElementsSum.cpp
-                 src/queueTimeCounter.cpp)
+                 src/queueTimeCounter.cpp
+                 src/everyPossibleSumOfTwoDigits.cpp)

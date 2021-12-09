@@ -18,5 +18,6 @@
 #include "redacted.h"
 #include "subarrayElementsSum.h"
 #include "queueTimeCounter.h"
+#include "everyPossibleSumOfTwoDigits.h"
 
 #endif /* _7KYU_H_ */

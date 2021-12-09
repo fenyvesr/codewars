@@ -20,5 +20,6 @@ int main(){
     redactedTest();
     subarrayElementsSumTest();
     queueTimeCounterTest();
+    everyPossibleSumOfTwoDigitsTest();
     return 0;
 }
