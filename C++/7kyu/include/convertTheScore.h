@@ -27,7 +27,7 @@
     \param[in] s Description of the currect scores.
     \returns     The actual scores as numerical values in a vector.
     \par Examples:
-         "new score: two three" a return {2,3}\n
+         "new score: two three" shall return {2,3}\n
          "Arsenal just conceded another goal, two nil" shall return {2,0}
     \warning The decsription of the scores has to contain exactly two numbers, which can be the followings,
              "nil", "one", "two", "three", "four", "five", "six", "seven", "eight" or "nine".

@@ -22,7 +22,7 @@
     \param[in] arr  Two dimensional array containing the integers. 
     \param[in] d    Default value in case the required index is out of range.
     \returns        Sum of the required elements.
-    \par Example:
+    \par Examples:
          {{3, 2, 1, 0}, {4, 6, 5, 3, 2}, {9, 8, 7, 4}} shall return 1 + 6 + 9 = 16\n
          {{3}, {4, 6, 5, 3, 2}, {9, 8, 7, 4}} shall return 0 + 6 + 9 = 15\n
          {{3, 2, 1, 0}, {4, 6, 5, 3, 2}, {}} and 5 shall return 1 + 6 + (5) = 12.

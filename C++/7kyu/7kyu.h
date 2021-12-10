@@ -21,5 +21,6 @@
 #include "queueTimeCounter.h"
 #include "subarrayElementsSum.h"
 #include "everyPossibleSumOfTwoDigits.h"
+#include "stringPacketBasedCommunication.h"
 
 #endif /* _7KYU_H_ */

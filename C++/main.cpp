@@ -23,5 +23,6 @@ int main(){
     queueTimeCounterTest();
     subarrayElementsSumTest();
     everyPossibleSumOfTwoDigitsTest();
+    stringPacketBasedCommunicationTest();
     return 0;
 }
