@@ -22,6 +22,7 @@ int main(){
     cigarStringsEasyTest();
     queueTimeCounterTest();
     subarrayElementsSumTest();
+    removeDuplicateWordsTest();
     everyPossibleSumOfTwoDigitsTest();
     stringPacketBasedCommunicationTest();
     return 0;

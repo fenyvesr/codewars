@@ -11,20 +11,21 @@
 **/
 #include "convertTheScore.h"
 
-#include <regex>
-#include <map>
-#include <cassert>
 
-/*! \brief This string contains the different possible number strings */
+#include <regex>   /*!< Needed for std::regex, std::smatch, std::regex_search */
+#include <map>     /*!< Needed for std::map */
+#include <cassert> /*!< Needed for assert */
+
+/*! \brief This string contains the different possibilities as scores. */
 std::string numbers = "(nil|one|two|three|four|five|six|seven|eight|nine)";
-/*! \brief This map contains the different possible number strings with their numerical value */
+/*! \brief This map contains the possible number strings with their numerical value. */
 std::map<std::string, int> mapString = { {"nil",0},{"one",1},{"two",2},{"three",3},{"four",4},{"five",5},{"six",6},{"seven",7},{"eight",8},{"nine",9} };
 
 std::vector<int> convertTheScore(const std::string& s) {
-    //Your code here!
-    std::smatch m;
-    std::regex r(numbers + ".*" + numbers);
-    std::regex_search(s, m, r);
+    std::smatch m; /*!< Contains the match results. */
+    /* Searching for the two numbers representing the scores in the input string. */
+    std::regex_search(s, m, std::regex(numbers + ".*" + numbers));
+    /* Returning the scores as numbers as a pair. */
     return {mapString[m[1]], mapString[m[2]]};
 }
 

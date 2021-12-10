@@ -11,11 +11,13 @@
 **/
 #include "offloadYourWork.h"
 
-#include <cassert>
+#include <cassert> /*!< Needed for assert*/
 
 std::string offloadYourWork(int projectMinutes, std::vector<std::pair<int, int>> freelancers){
+    /* We can reduce the project minutes by the available freelancer resource minutes. */
     for (auto freelancer : freelancers)
         projectMinutes -= freelancer.first * 60 + freelancer.second;
+    /* If the corrected project minutes are positive, then we have to work. Otherwise our freelancers can do the job instead of us. */
     return (projectMinutes > 0) ? "I need to work " + std::to_string(projectMinutes / 60) + " hour(s) and " + std::to_string(projectMinutes % 60) + " minute(s)"
                                 : "Easy Money!";
 }

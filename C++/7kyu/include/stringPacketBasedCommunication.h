@@ -35,7 +35,7 @@
 #ifndef _STRING_PACKET_BASED_COMMUNICATION_H_
 #define _STRING_PACKET_BASED_COMMUNICATION_H_
 
-#include <string>
+#include <string> /*!< Needed for std::string, std::stoi, std::to_string, std::string::size() */
 
 /*!
     \brief            This function executes the instruction in a packet and returns the result as a string
@@ -47,7 +47,7 @@
 */
 std::string stringPacketBasedCommunication(std::string packet);
 
-/*! \brief This function tests the subarrayElementsSum function. **/
+/*! \brief This function tests the stringPacketBasedCommunication function. **/
 void stringPacketBasedCommunicationTest ();
 
 #endif /* _STRING_PACKET_BASED_COMMUNICATION_H_ */

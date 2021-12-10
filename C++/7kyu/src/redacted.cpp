@@ -11,12 +11,12 @@
 **/
 #include "cigarStringsEasy.h"
 
-#include <cassert>
-#include <algorithm>
+#include <cassert>   /*!< Needed for assert */
+#include <algorithm> /*!< Needed for std::equal */
 
 bool redacted(const std::string &doc1, const std::string &doc2)
 {
-    // Your code here
+    /* Iterating over the two input strings and comparing the characters. */
     return std::equal(doc1.begin(), doc1.end(),
                       doc2.begin(), doc2.end(),
                       [](const char &a, const char &b){ return (a == b) || ( 'X' == a && '\n' != b ); });

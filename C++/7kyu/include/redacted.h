@@ -16,7 +16,7 @@
 #ifndef _REDACTED_H_
 #define _REDACTED_H_
 
-#include <string>
+#include <string> /*!< Needed for std::string, std::string::begin, std::string::end */
 
 /*!
     \brief          This function decides whether the two documents are possivly the same.

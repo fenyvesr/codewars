@@ -17,8 +17,8 @@
 #ifndef _OFFLOAD_YOUR_WORK_H_
 #define _OFFLOAD_YOUR_WORK_H_
 
-#include <vector>
-#include <string>
+#include <vector> /*!< Needed for std::vector, std::pair */
+#include <string> /*!< Needed for std::string, std::to_string */
 
 /*!
     \brief                    This function evaluates whether you have to work at all and if yes, then how much you have to work.

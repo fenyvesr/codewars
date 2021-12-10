@@ -17,7 +17,7 @@
 #ifndef _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_
 #define _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_
 
-#include <vector>
+#include <vector> /*!< Needed for std::vector, std::vector::begin, std::vector::end, prev, std::vector::push_back */
 
 /*!
     \brief       This function gives back the sum of every pair of digits in a number.
@@ -28,7 +28,7 @@
 */
 std::vector<int> everyPossibleSumOfTwoDigits(int n);
 
-/*! \brief This function tests the queueTimeCounter function. **/
+/*! \brief This function tests the everyPossibleSumOfTwoDigits function. **/
 void everyPossibleSumOfTwoDigitsTest ();
 
 #endif /* _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_ */

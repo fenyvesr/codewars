@@ -20,6 +20,7 @@
 #include "cigarStringsEasy.h"
 #include "queueTimeCounter.h"
 #include "subarrayElementsSum.h"
+#include "removeDuplicateWords.h"
 #include "everyPossibleSumOfTwoDigits.h"
 #include "stringPacketBasedCommunication.h"
 

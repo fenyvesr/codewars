@@ -11,11 +11,11 @@
 **/
 #include "subarrayElementsSum.h"
 
-#include <cassert>
-#include <numeric>
+#include <cassert> /*!< Needed for assert */
+#include <numeric> /*!< Needed for std::accumulate */
 
 long subarrayElementsSum(const std::vector<std::vector<int>>& arr, int d){
-  //your code here
+  /* Summing the required members in the input vectors */
   return std::accumulate(arr.cbegin(), arr.cend(), 0,
                          [i{arr.size()}, d](const long &acc, auto& b) mutable {
                            return acc + (--i >= b.size() ? d : b[i]);
