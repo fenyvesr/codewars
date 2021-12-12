@@ -22,6 +22,9 @@ env:
 
 jobs:
   analyze:
+    defaults:
+      run:
+        working-directory: C++
     name: Analyze
     runs-on: windows-latest
 
