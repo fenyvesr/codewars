@@ -16,6 +16,7 @@
 int main(){
     redactedTest();
     sumOfABeachTest();
+    tramCapacityTest();
     smoothNumbersTest();
     returnLocationTest();
     convertTheScoreTest();

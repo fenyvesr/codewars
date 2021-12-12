@@ -28,7 +28,7 @@
          "TOP SECRET:\\nThe missile launch code for Sunday 5th August is:\\n7-ZERO-8X-ALPHA-1"\n
          shall return true.
 */
-bool redacted(const std::string &doc1, const std::string &doc2);
+bool redacted(const std::string& doc1, const std::string& doc2);
 
 /*! \brief This function tests the redacted function. **/
 void redactedTest ();

@@ -15,6 +15,7 @@
 
 #include "redacted.h"
 #include "sumOfABeach.h"
+#include "tramCapacity.h"
 #include "smoothNumbers.h"
 #include "convertTheScore.h"
 #include "leonardoNumbers.h"

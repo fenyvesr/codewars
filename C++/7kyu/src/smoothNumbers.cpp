@@ -1,5 +1,5 @@
 /*!
-***     \file        sumOfABeach.cpp
+***     \file        smoothNumbers.cpp
 ***
 ***     \authors     Robert Fenyvesi <fenyvesr@gmail.com>
 ***
@@ -9,7 +9,7 @@
 ***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2f6ad842b27ea689000082 and its test function.
 ***
 **/
-#include "sumOfABeach.h"
+#include "smoothNumbers.h"
 
 #include <cassert> /*!< Needed for assert */
 

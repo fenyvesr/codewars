@@ -2,6 +2,7 @@ include_directories("${PROJECT_SOURCE_DIR}/7kyu/include")
 
 add_library(7kyu src/redacted.cpp
                  src/sumOfABeach.cpp
+                 src/tramCapacity.cpp
                  src/smoothNumbers.cpp
                  src/convertTheScore.cpp
                  src/leonardoNumbers.cpp
