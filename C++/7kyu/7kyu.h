@@ -17,6 +17,7 @@
 #include "sumOfABeach.h"
 #include "smoothNumbers.h"
 #include "convertTheScore.h"
+#include "leonardoNumbers.h"
 #include "offloadYourWork.h"
 #include "cigarStringsEasy.h"
 #include "queueTimeCounter.h"

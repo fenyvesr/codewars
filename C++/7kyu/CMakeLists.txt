@@ -4,6 +4,7 @@ add_library(7kyu src/redacted.cpp
                  src/sumOfABeach.cpp
                  src/smoothNumbers.cpp
                  src/convertTheScore.cpp
+                 src/leonardoNumbers.cpp
                  src/offloadYourWork.cpp
                  src/cigarStringsEasy.cpp
                  src/queueTimeCounter.cpp

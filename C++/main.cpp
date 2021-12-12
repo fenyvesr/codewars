@@ -19,6 +19,7 @@ int main(){
     smoothNumbersTest();
     returnLocationTest();
     convertTheScoreTest();
+    leonardoNumbersTest();
     offloadYourWorkTest();
     cigarStringsEasyTest();
     queueTimeCounterTest();

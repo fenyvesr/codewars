@@ -21,7 +21,7 @@
 
 /*!
     \brief       This function gives back the sum of every pair of digits in a number.
-    \param[in] n The number for wich we ae interested in the digit pair sums.
+    \param[in] n The number for wich we are interested in the digit pair sums.
     \returns     A vector containing the possible sums.
     \par Example:
                  156 shall return { 6, 7, 11 }
