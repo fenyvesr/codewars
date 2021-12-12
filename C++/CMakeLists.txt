@@ -17,7 +17,7 @@ add_executable(Codewars main.cpp)
 # Enable testing for the project
 enable_testing()
 # add the test executable
-add_test(CodewarsTest main.cpp)
+add_test(CodewarsTest Codewars)
 
 target_link_libraries(Codewars PUBLIC 8kyu)
 target_link_libraries(Codewars PUBLIC 7kyu)
