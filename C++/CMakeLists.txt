@@ -14,6 +14,8 @@ add_subdirectory(7kyu)
 # add the executable
 add_executable(Codewars main.cpp)
 
+add_test(CodewarsTest main.cpp)
+
 target_link_libraries(Codewars PUBLIC 8kyu)
 target_link_libraries(Codewars PUBLIC 7kyu)
 
