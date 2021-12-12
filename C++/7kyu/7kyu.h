@@ -15,6 +15,7 @@
 
 #include "redacted.h"
 #include "sumOfABeach.h"
+#include "smoothNumbers.h"
 #include "convertTheScore.h"
 #include "offloadYourWork.h"
 #include "cigarStringsEasy.h"

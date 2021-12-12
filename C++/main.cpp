@@ -16,6 +16,7 @@
 int main(){
     redactedTest();
     sumOfABeachTest();
+    smoothNumbersTest();
     returnLocationTest();
     convertTheScoreTest();
     offloadYourWorkTest();
