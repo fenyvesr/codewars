@@ -6,4 +6,4 @@ CALL Tools\cmake-3.22.1-windows-x86_64\bin\cmake.exe --build ./build --config Re
 CALL Tools\cmake-3.22.1-windows-x86_64\bin\ctest.exe -C Release --output-on-failure
 CALL Tools\doxygen-1.9\doxygen.exe Doxygen_config
 
-CALL build\Debug\Codewars.exe
+CALL build\Release\Codewars.exe

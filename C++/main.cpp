@@ -17,6 +17,7 @@ int main(){
     redactedTest();
     sumOfABeachTest();
     tramCapacityTest();
+    fixStringCaseTest();
     smoothNumbersTest();
     returnLocationTest();
     convertTheScoreTest();
