@@ -40,18 +40,15 @@ jobs:
       run: ctest -C ${{env.BUILD_TYPE}} --output-on-failure
   documentation:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: C++
     
     steps:
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.3.1
       with:
         # Path to Doxyfile
-        doxyfile-path: "./Doxygen_config"
+        doxyfile-path: './Doxygen_config'
         # Working directory
-        working-directory: "."
+        working-directory: 'C++/'
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
