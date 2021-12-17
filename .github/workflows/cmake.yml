@@ -40,12 +40,12 @@ jobs:
       run: ctest -C ${{env.BUILD_TYPE}} --output-on-failure
       
     - name: Doxygen Action
-      uses: mattnotmitt/doxygen-action@v1.1.0
+      uses: mattnotmitt/doxygen-action@v1
       with:
         # Path to Doxyfile
-        doxyfile-path: "./C++/Doxygen_config"
+        doxyfile-path: "C++/Doxygen_config"
         # Working directory
-        working-directory: "./C++/doc"
+        working-directory: "C++/doc"
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
