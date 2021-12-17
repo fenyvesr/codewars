@@ -11,10 +11,10 @@
 **/
 #include "smoothNumbers.h"
 
-#include <cassert> /*!< Needed for assert */
+#include <cassert> /* Needed for assert */
 
 std::string smoothNumbers(unsigned long n){
-    int max; /*!< The maximum divisor. */
+    int max; /* The maximum divisor. */
     /* Divinding n with the divisor. */
     for (max = 2; 1 != n && max <= 7; max += (0 == n % max) ? 0 : 1, n /= (0 == n % max) ? max : 1);
     /* Deciding the return string based on the maximum divisor. */

@@ -11,16 +11,16 @@
 **/
 #include "stringPacketBasedCommunication.h"
 
-#include <cassert>    /*!< Needed for assert */
-#include <regex>      /*!< Needed for std::regex, std::regex_match, std::smatch */
-#include <map>        /*!< Needed for std::map, std::map::operator[] */
-#include <functional> /*<! Needed for std::function */
+#include <cassert>    /* Needed for assert */
+#include <regex>      /* Needed for std::regex, std::regex_match, std::smatch */
+#include <map>        /* Needed for std::map, std::map::operator[] */
+#include <functional> /* Needed for std::function */
 
 /*! \brief This variable contains the instruction codes and the functions to invoke based on the packet. */
 std::map<std::string, std::function<int (const int&, const int&)>> codes = { {"0F12",std::plus<>()}, {"B7A2",std::minus<>()}, {"C3D9", std::multiplies<>()} };
 
 std::string stringPacketBasedCommunication(std::string packet) {
-    std::smatch m; /*!< Contains the match results. */
+    std::smatch m; /* Contains the match results. */
     /* Matching the input packet with a regular expression describing the format. */
     std::regex_match(packet, m, std::regex("(.{4})(0F12|B7A2|C3D9)(\\d{4})(\\d{4})(.{4})"));
     /* Executing the required instruction with the given data. */

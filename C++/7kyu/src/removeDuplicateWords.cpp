@@ -11,15 +11,15 @@
 **/
 #include "removeDuplicateWords.h"
 
-#include <cassert>   /*!< Needed for assert */
-#include <vector>    /*!< Needed for std::vector, std::back_inserter, std::vector::begin, std::vector::end */
-#include <numeric>   /*!< Needed for std::accumulate */
-#include <algorithm> /*!< Needed for std::copy_if */
-#include <sstream>   /*!< Needed for std::istringstream, std::istream_iterator */
+#include <cassert>   /* Needed for assert */
+#include <vector>    /* Needed for std::vector, std::back_inserter, std::vector::begin, std::vector::end */
+#include <numeric>   /* Needed for std::accumulate */
+#include <algorithm> /* Needed for std::copy_if */
+#include <sstream>   /* Needed for std::istringstream, std::istream_iterator */
 
 std::string removeDuplicateWords(const std::string& str) {
-    std::istringstream iss(str); /*!< Input string stream based on the input string. */
-    std::vector<std::string> words; /*!< Collection of the words in the input string. */
+    std::istringstream iss(str); /* Input string stream based on the input string. */
+    std::vector<std::string> words; /* Collection of the words in the input string. */
     /* We are copying the words from the input stream into the word collection in case it is not yet present. */
     std::copy_if(std::istream_iterator<std::string>(iss), std::istream_iterator<std::string>(), std::back_inserter(words),
         [&words](const auto& word) { return words.end() == std::find(words.begin(), words.end(), word); });

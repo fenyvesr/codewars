@@ -15,7 +15,7 @@
 #ifndef _FIX_STRING_CASE_H_
 #define _FIX_STRING_CASE_H_
 
-#include <string> /*!< Needed for std::string, std::to_string, std::stoi */
+#include <string> /* Needed for std::string, std::to_string, std::stoi */
 
 /*!
     \brief         This function changes the case of the characters in a string based on the original number of lower and upper case characters.

@@ -11,12 +11,12 @@
 **/
 #include "cigarStringsEasy.h"
 
-#include <cassert> /*!< Needed for assert */
-#include <regex>   /*!< Needed for std::regex, std::sregex_iterator */
+#include <cassert> /* Needed for assert */
+#include <regex>   /* Needed for std::regex, std::sregex_iterator */
 
 std::string cigarStringsEasy(const std::string& cigar, const std::string& nuc_seq) {
-    size_t k = 0; /*!< Value containing the length of the genome coded by the cigar string. */
-    std::regex re("\\d+"); /*!< Regular expression describing a number. */
+    size_t k = 0; /* Value containing the length of the genome coded by the cigar string. */
+    std::regex re("\\d+"); /* Regular expression describing a number. */
 
     /* Iterating over the cigar string and accumulating the numbers it contains. */
     for (auto it = std::sregex_iterator(cigar.begin(), cigar.end(), re); it != std::sregex_iterator(); k += std::stoi(it++->str()));

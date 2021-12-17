@@ -11,7 +11,7 @@
 **/
 #include "offloadYourWork.h"
 
-#include <cassert> /*!< Needed for assert*/
+#include <cassert> /* Needed for assert*/
 
 std::string offloadYourWork(int projectMinutes, std::vector<std::pair<int, int>> freelancers){
     /* We can reduce the project minutes by the available freelancer resource minutes. */

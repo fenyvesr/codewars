@@ -15,7 +15,7 @@
 #ifndef _LEONARDO_NUMBERS_H_
 #define _LEONARDO_NUMBERS_H_
 
-#include <vector> /*<! Needed for std::vector */
+#include <vector> /* Needed for std::vector */
 
 /*!
     \brief         This function gives back an array containing the first n Leonardo numbers.

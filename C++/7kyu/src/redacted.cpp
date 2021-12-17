@@ -11,8 +11,8 @@
 **/
 #include "cigarStringsEasy.h"
 
-#include <cassert>   /*!< Needed for assert */
-#include <algorithm> /*!< Needed for std::equal */
+#include <cassert>   /* Needed for assert */
+#include <algorithm> /* Needed for std::equal */
 
 bool redacted(const std::string& doc1, const std::string& doc2)
 {

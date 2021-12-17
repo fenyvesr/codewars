@@ -17,7 +17,7 @@
 #ifndef _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_
 #define _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_
 
-#include <vector> /*!< Needed for std::vector, std::vector::begin, std::vector::end, prev, std::vector::push_back */
+#include <vector> /* Needed for std::vector, std::vector::begin, std::vector::end, prev, std::vector::push_back */
 
 /*!
     \brief       This function gives back the sum of every pair of digits in a number.

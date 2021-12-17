@@ -27,7 +27,7 @@
 #ifndef _SMOOTH_NUMBERS_H_
 #define _SMOOTH_NUMBERS_H_
 
-#include <string> /*<! Needed for std::string */
+#include <string> /* Needed for std::string */
 
 /*!
     \brief       This function decides what kind of number the input is.

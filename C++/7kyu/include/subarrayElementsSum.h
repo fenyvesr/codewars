@@ -15,7 +15,7 @@
 #ifndef _SUBARRAY_ELEMENTS_SUM_H_
 #define _SUBARRAY_ELEMENTS_SUM_H_
 
-#include <vector> /*!< Needed for std::vector, std::vector::cbegin, std::vector::cend, std::vector::size */
+#include <vector> /* Needed for std::vector, std::vector::cbegin, std::vector::cend, std::vector::size */
 
 /*!
     \brief          This function calculates the sum of the required elements

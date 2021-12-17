@@ -11,8 +11,8 @@
 **/
 #include "subarrayElementsSum.h"
 
-#include <cassert> /*!< Needed for assert */
-#include <numeric> /*!< Needed for std::accumulate */
+#include <cassert> /* Needed for assert */
+#include <numeric> /* Needed for std::accumulate */
 
 long subarrayElementsSum(const std::vector<std::vector<int>>& arr, int d){
   /* Summing the required members in the input vectors */

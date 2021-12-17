@@ -13,7 +13,7 @@
 #ifndef _SUM_OF_A_BEACH_H_
 #define _SUM_OF_A_BEACH_H_
 
-#include <string> /*<! Needed for std::string, std::string::begin, std::string::end */
+#include <string> /* Needed for std::string, std::string::begin, std::string::end */
 
 /*!
     \brief          This function counts how many times sand, water, fish and sun is present in the input string.

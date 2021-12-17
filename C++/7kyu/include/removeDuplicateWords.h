@@ -14,7 +14,7 @@
 #ifndef _REMOVE_DUPLICATE_WORDS_H_
 #define _REMOVE_DUPLICATE_WORDS_H_
 
-#include <string> /*<! Needed for std::string, std::string::size */
+#include <string> /* Needed for std::string, std::string::size */
 
 std::string removeDuplicateWords(const std::string& str);
 

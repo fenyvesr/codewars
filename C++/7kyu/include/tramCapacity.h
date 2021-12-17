@@ -14,7 +14,7 @@
 #ifndef _TRAM_CAPACITY_H_
 #define _TRAM_CAPACITY_H_
 
-#include <vector> /*<! Needed for std::vector, std::vector::cbegin, std::vector::cend, std::vector::size, std::vector::begin */
+#include <vector> /* Needed for std::vector, std::vector::cbegin, std::vector::cend, std::vector::size, std::vector::begin */
 
 /*!
     \brief           This function evaluates how much capacity the tram needs with the given input parameters.

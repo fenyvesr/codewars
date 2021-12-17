@@ -35,7 +35,7 @@
 #ifndef _STRING_PACKET_BASED_COMMUNICATION_H_
 #define _STRING_PACKET_BASED_COMMUNICATION_H_
 
-#include <string> /*!< Needed for std::string, std::stoi, std::to_string, std::string::size() */
+#include <string> /* Needed for std::string, std::stoi, std::to_string, std::string::size() */
 
 /*!
     \brief            This function executes the instruction in a packet and returns the result as a string

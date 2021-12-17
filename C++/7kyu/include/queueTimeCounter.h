@@ -17,7 +17,7 @@
 #ifndef _QUEUE_TIME_COUNTER_H_
 #define _QUEUE_TIME_COUNTER_H_
 
-#include <vector> /*!< Needed for std::vector, std::vector::size */
+#include <vector> /* Needed for std::vector, std::vector::size */
 
 /*!
     \brief             This function count how many time our friend has to wait in the line.

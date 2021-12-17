@@ -20,7 +20,7 @@
 #ifndef _CIGAR_STRINGS_EASY_H_
 #define _CIGAR_STRINGS_EASY_H_
 
-#include <string> /*!< Needed for std::string, std::to_string, std::stoi */
+#include <string> /* Needed for std::string, std::to_string, std::stoi */
 
 /*!
     \brief       This function decides whether the cigar string is valid and whether the read was successful or not.
