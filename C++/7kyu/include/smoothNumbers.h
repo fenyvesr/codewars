@@ -12,8 +12,7 @@
 ***                  - 3-smooth numbers are to return a result of "3-smooth";
 ***                  - 5-smooth numbers will be labelled as "Hamming number"s (incidentally, you might appreciate this nice kata on them);
 ***                  - 7-smooth numbers are classified as "humble number"s;
-***                  .
-***                  for all the other numbers, just return non-smooth.\n
+***                  - for all the other numbers, just return non-smooth.\n
 ***     \par    Examples:
 ***                  isSmooth(16) == "power of 2"\n
 ***                  isSmooth(36) == "3-smooth"\n
