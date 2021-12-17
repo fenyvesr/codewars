@@ -46,9 +46,9 @@ jobs:
       uses: mattnotmitt/doxygen-action@v1.3.1
       with:
         # Path to Doxyfile
-        doxyfile-path: "C++/Doxygen_config"
+        doxyfile-path: "./C++/Doxygen_config.txt"
         # Working directory
-        working-directory: "C++/doc"
+        working-directory: "./C++"
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -56,4 +56,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         # Default Doxyfile build documentation to html directory. 
         # Change the directory if changes in Doxyfile
-        publish_dir: ./C++/doc/html
+        publish_dir: ./C++/doc/html/
