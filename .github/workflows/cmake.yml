@@ -40,15 +40,18 @@ jobs:
       run: ctest -C ${{env.BUILD_TYPE}} --output-on-failure
   documentation:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: C++
     
     steps:
     - name: Doxygen Action
       uses: mattnotmitt/doxygen-action@v1.3.1
       with:
         # Path to Doxyfile
-        doxyfile-path: "./C++/Doxygen_config.txt"
+        doxyfile-path: ./Doxygen_config.txt
         # Working directory
-        working-directory: "./C++"
+        working-directory: .
     
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
@@ -56,4 +59,4 @@ jobs:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         # Default Doxyfile build documentation to html directory. 
         # Change the directory if changes in Doxyfile
-        publish_dir: ./C++/doc/html/
+        publish_dir: ./doc/html/
