@@ -21,6 +21,7 @@ jobs:
     - run: ls
     
     - run: ${GITHUB_WORKSPACE}/.github/workflows/entrypoint.sh './Doxygen_config' 'C++' 'true'
+      shell: bash
     
     # Deploy the HTML documentation to GitHub Pages
     - name: GH Pages Deployment
