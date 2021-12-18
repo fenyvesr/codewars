@@ -18,6 +18,10 @@ jobs:
     
     - uses: docker://alpine:3.13.3
     
+    - run: ls
+    
+    - run: doxygen
+    
     - run: "${GITHUB_WORKSPACE}/.github/workflows/entrypoint.sh"
     
     # Deploy the HTML documentation to GitHub Pages
