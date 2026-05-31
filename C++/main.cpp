@@ -13,7 +13,8 @@
 #include "8kyu.h"
 #include "7kyu.h"
 
-int main(){
+int main()
+{
     redactedTest();
     sumOfABeachTest();
     tramCapacityTest();

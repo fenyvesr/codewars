@@ -16,6 +16,7 @@
 #include <numeric>   /* Needed for std::accumulate */
 #include <algorithm> /* Needed for std::copy_if */
 #include <sstream>   /* Needed for std::istringstream, std::istream_iterator */
+#include <iterator>  /* Needed for std::istream_iterator */
 
 std::string removeDuplicateWords(const std::string& str) {
     std::istringstream iss(str); /* Input string stream based on the input string. */

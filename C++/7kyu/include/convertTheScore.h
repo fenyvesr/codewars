@@ -29,7 +29,7 @@
     \par Examples:
          "new score: two three" shall return {2,3}\n
          "Arsenal just conceded another goal, two nil" shall return {2,0}
-    \warning The decsription of the scores has to contain exactly two numbers, which can be the followings,
+    \warning The description of the scores has to contain exactly two numbers, which can be the followings,
              "nil", "one", "two", "three", "four", "five", "six", "seven", "eight" or "nine".
 */
 std::vector<int> convertTheScore(const std::string& s);

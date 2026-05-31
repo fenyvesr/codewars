@@ -28,7 +28,7 @@
 ***                  To give a complete example:\n
 ***                  If you receive message "H1H10F1200120008F4F4", the correct response would be "H1H1FFFF00200000F4F4"\n
 ***                  In the event that your calculation produces a negative result, the value returned should be "0000", similarly if the value is above 9999 you should return "9999".\n
-***                  Goodluck, I look forward to reading your creative solutions!
+***                  Good luck, I look forward to reading your creative solutions!
 ***
 **/
 

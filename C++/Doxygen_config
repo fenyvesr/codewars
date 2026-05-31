@@ -32,7 +32,7 @@ DOXYFILE_ENCODING      = UTF-8
 # title of most generated pages and in a few other places.
 # The default value is: My Project.
 
-PROJECT_NAME           = Codewars
+PROJECT_NAME           = CodeWars
 
 # The PROJECT_NUMBER tag can be used to enter a project or revision number. This
 # could be handy for archiving the generated documentation or if some version
@@ -1905,6 +1905,15 @@ LATEX_EXTRA_STYLESHEET =
 
 LATEX_EXTRA_FILES      =
 
+# If the LATEX_BATCHMODE tag is set to YES, doxygen will run LaTeX in batch
+# mode. In batch mode, LaTeX continues processing without stopping for user
+# input and produces less interactive output. Setting this option to NO can be
+# useful when debugging LaTeX/PDF generation problems, because errors and
+# warnings are shown more explicitly.
+# This tag requires that the tag GENERATE_LATEX is set to YES.
+
+LATEX_BATCHMODE        = NO
+
 # If the PDF_HYPERLINKS tag is set to YES, the LaTeX that is generated is
 # prepared for conversion to PDF (using ps2pdf or pdflatex). The PDF file will
 # contain links (just like the HTML output) instead of page references. This
@@ -1923,14 +1932,6 @@ PDF_HYPERLINKS         = YES
 # This tag requires that the tag GENERATE_LATEX is set to YES.
 
 USE_PDFLATEX           = YES
-
-# If the LATEX_BATCHMODE tag is set to YES, doxygen will add the \batchmode
-# command to the generated LaTeX files. This will instruct LaTeX to keep running
-# if errors occur, instead of asking the user for help.
-# The default value is: NO.
-# This tag requires that the tag GENERATE_LATEX is set to YES.
-
-LATEX_BATCHMODE        = NO
 
 # If the LATEX_HIDE_INDICES tag is set to YES then doxygen will not include the
 # index chapters (such as File Index, Compound Index, etc.) in the output.
@@ -2504,7 +2505,7 @@ DIRECTORY_GRAPH        = YES
 # The default value is: png.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-DOT_IMAGE_FORMAT       = png
+DOT_IMAGE_FORMAT       = svg
 
 # If DOT_IMAGE_FORMAT is set to svg, then this option can be set to YES to
 # enable generation of interactive SVG images that allow zooming and panning.
