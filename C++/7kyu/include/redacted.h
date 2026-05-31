@@ -19,7 +19,7 @@
 #include <string> /* Needed for std::string, std::string::begin, std::string::end */
 
 /*!
-    \brief          This function decides whether the two documents are possivly the same.
+    \brief          This function decides whether the two documents are possibly the same.
     \param[in] doc1 Redacted document.
     \param[in] doc2 Original document.
     \returns        Whether the two documents are possibly the same.

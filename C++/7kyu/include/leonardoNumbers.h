@@ -22,7 +22,7 @@
     \param[in] n   The number defining how many Leonardo numbers shall be computed.
     \param[in] L0  The 0th Leonardo number.
     \param[in] L1  The 1st Leonardo number.
-    \param[in] add The number whihch has to be added to every Leonardo number.
+    \param[in] add The number which has to be added to every Leonardo number.
     \returns       A vector containing the first n Leonardo number.
     \par Example:
                  5, 1, 1 and 1 shall return { 1, 1, 3, 5, 9 }.
