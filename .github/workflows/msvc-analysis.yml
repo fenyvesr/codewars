@@ -1,62 +1,98 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-#
-# Find more information at:
-# https://github.com/microsoft/msvc-code-analysis-action
+# GitHub Actions workflow for Microsoft C++ Code Analysis.
+# This workflow runs the MSVC static analyzer on your C++ project
+# and uploads the results to GitHub Code Scanning.
 
 name: Microsoft C++ Code Analysis
 
+# When should this workflow run?
 on:
+  # Run whenever code is pushed to main.
   push:
     branches: [ main ]
+
+  # Run whenever a pull request targets main.
   pull_request:
     branches: [ main ]
-  schedule:
-    - cron: '00 00 * * 1'
 
+  # Run once per week automatically.
+  # This cron means: Monday at 00:00 UTC.
+  schedule:
+    - cron: "0 0 * * 1"
+
+# Required permissions.
+# Without security-events: write, GitHub cannot receive
+# the uploaded SARIF/code-scanning results.
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+# Global environment variables.
 env:
-  # Path to the CMake build directory.
-  build: '${{ github.workspace }}/C++/build'
+  # Separate build folder for MSVC analysis.
+  # This avoids conflicts with your MinGW build folder.
+  BUILD_DIR: ${{ github.workspace }}/C++/build-msvc-analysis
 
 jobs:
   analyze:
+    # Name shown in the GitHub Actions UI.
+    name: Analyze with MSVC
+
+    # MSVC is only available on Windows runners.
+    runs-on: windows-latest
+
+    # All normal run commands below are executed from the C++ folder.
     defaults:
       run:
         working-directory: C++
-    name: Analyze
-    runs-on: windows-latest
 
     steps:
+      # Download your repository into the GitHub Actions runner.
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Configure CMake
-        run: cmake -B ${{ env.build }}
+      # Configure the project with CMake using Visual Studio/MSVC.
+      #
+      # Important:
+      # This is intentionally NOT using MinGW.
+      # The Microsoft analyzer needs an MSVC/Visual Studio CMake build.
+      - name: Configure CMake with MSVC
+        run: cmake -B "${{ env.BUILD_DIR }}" -G "Visual Studio 17 2022" -A x64
 
-      # Build is not required unless generated source files are used
-      # - name: Build CMake
-      #   run: cmake --build ${{ env.build }}
-
+      # Run Microsoft C++ Code Analysis.
+      #
+      # cmakeBuildDirectory:
+      #   Points to the CMake build directory created above.
+      #
+      # ruleset:
+      #   Defines which MSVC analysis rules are enabled.
+      #   NativeRecommendedRules.ruleset is the standard recommended native C++ ruleset.
+      #
+      # id:
+      #   Needed so later steps can access:
+      #   steps.run-analysis.outputs.sarif
       - name: Initialize MSVC Code Analysis
-        uses: microsoft/msvc-code-analysis-action@04825f6d9e00f87422d6bf04e1a38b1f3ed60d99
-        # Provide a unique ID to access the sarif output path
         id: run-analysis
+        uses: microsoft/msvc-code-analysis-action@04825f6d9e00f87422d6bf04e1a38b1f3ed60d99
         with:
-          cmakeBuildDirectory: ${{ env.build }}
-          # Ruleset file that will determine what checks will be run
+          cmakeBuildDirectory: ${{ env.BUILD_DIR }}
           ruleset: NativeRecommendedRules.ruleset
 
-      # Upload SARIF file to GitHub Code Scanning Alerts
-      - name: Upload SARIF to GitHub
-        uses: github/codeql-action/upload-sarif@v1
+      # Upload the SARIF result file to GitHub Code Scanning.
+      #
+      # After this step, warnings should appear under:
+      # Repository -> Security -> Code scanning alerts
+      - name: Upload SARIF to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: ${{ steps.run-analysis.outputs.sarif }}
 
-      # Upload SARIF file as an Artifact to download and view
-      - name: Upload SARIF as an Artifact
-        uses: actions/upload-artifact@v2
+      # Also upload the SARIF file as a downloadable workflow artifact.
+      #
+      # This is useful for debugging if GitHub Code Scanning does not show
+      # what you expected.
+      - name: Upload SARIF as artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: sarif-file
+          name: msvc-analysis-sarif
           path: ${{ steps.run-analysis.outputs.sarif }}
