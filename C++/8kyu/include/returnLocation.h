@@ -5,13 +5,12 @@
 ***
 ***     \brief       Solution for https://www.codewars.com/kata/57f037927b45ef77b3000260/
 ***
-***     \par    File description
+***     \par         File description
 ***                  This header contains the solution for https://www.codewars.com/kata/57f037927b45ef77b3000260/ and its test function.
 ***
 **/
 
-#ifndef _RETURN_LOCATION_H_
-#define _RETURN_LOCATION_H_
+#pragma once
 
 /*!
 ***     \brief This class represents a person.
@@ -48,5 +47,3 @@ class Person
 };
 
 void returnLocationTest ();
-
-#endif /* _RETURN_LOCATION_H_ */
