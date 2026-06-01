@@ -29,8 +29,8 @@ permissions:
   pull-requests: read
 
 env:
-  SONAR_PROJECT_KEY: replace-with-your-project-key
-  SONAR_ORGANIZATION: replace-with-your-organization
+  SONAR_PROJECT_KEY: fenyvesr_codewars
+  SONAR_ORGANIZATION: fenyvesr
 
 jobs:
   sonarcloud:
@@ -50,7 +50,7 @@ jobs:
       - name: Install build tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ ninja-build
+          sudo apt-get install -y g++ ninja-build unzip curl
 
       # Build wrapper is needed for C/C++ SonarCloud analysis.
       - name: Install Sonar build-wrapper
@@ -68,7 +68,7 @@ jobs:
             cmake --build build-sonar
 
       - name: Run SonarCloud scan
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
@@ -76,4 +76,5 @@ jobs:
           args: >
             -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
-            -Dsonar.cfamily.build-wrapper-output=C++/bw-output
+            -Dsonar.cfamily.build-wrapper-output=${{ github.workspace }}/C++/bw-output
+            -Dsonar.exclusions=doc/**,build/**,Tools/**,Testing/**
