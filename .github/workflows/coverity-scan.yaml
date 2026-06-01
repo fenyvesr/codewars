@@ -1,0 +1,39 @@
+# Optional workflow placeholder for Coverity Scan.
+#
+# Coverity Scan is a strong static analysis service, especially for C/C++.
+# It is often free for open-source projects, but requires account/project setup.
+#
+# Before enabling:
+#   1. Register the repository with Coverity Scan.
+#   2. Add repository secrets required by Coverity.
+#   3. Replace the placeholder commands below with the project-specific commands
+#      from your Coverity Scan dashboard.
+#
+# This file is intentionally manual-only.
+
+name: Coverity Scan
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coverity:
+    name: Coverity Scan
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Placeholder
+        run: |
+          echo "Configure this workflow after creating a Coverity Scan project."
+          echo "You will need Coverity-specific tokens and upload commands."
+          exit 1

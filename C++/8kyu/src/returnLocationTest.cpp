@@ -17,9 +17,9 @@
 ***     \brief This function tests the constructor and the location method of the Person class.
 **/
 void returnLocationTest(){
-    Person* person = new Person(1, 2, 3);
+    Person person(1, 2, 3);
     int x = 0, y = 0, z = 0;
-    person->location(x, y, z);
+    person.location(x, y, z);
     assert(("Wrong value of x", 1 == x));
     assert(("Wrong value of y", 2 == y));
     assert(("Wrong value of z", 3 == z));

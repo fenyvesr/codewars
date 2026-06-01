@@ -1,0 +1,60 @@
+# GitHub Actions workflow for Valgrind.
+#
+# Valgrind runs your tests under a memory checker.
+# It is slower than sanitizers but can still be useful on Linux.
+#
+# Keep this manual or scheduled if it becomes too slow.
+
+name: Valgrind
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+  schedule:
+    # Monday 02:00 UTC.
+    - cron: "0 2 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  valgrind:
+    name: Valgrind memory check
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ ninja-build valgrind
+
+      - name: Configure CMake
+        run: cmake -B build-valgrind -G Ninja -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Build
+        run: cmake --build build-valgrind
+
+      # CTest can run tests through Valgrind using CTEST_MEMORYCHECK_COMMAND.
+      #
+      # --error-exitcode=1 makes the job fail on Valgrind-detected errors.
+      - name: Run Codewars under Valgrind
+        run: |
+          valgrind \
+            --leak-check=full \
+            --show-leak-kinds=all \
+            --errors-for-leak-kinds=all \
+            --error-exitcode=1 \
+            ./build-valgrind/CodeWars

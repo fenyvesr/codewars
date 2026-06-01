@@ -1,0 +1,67 @@
+# GitHub Actions workflow for CodeQL.
+#
+# CodeQL is GitHub's semantic code analysis engine.
+# For C/C++, it analyzes the compiled source code and uploads
+# security/code-quality findings directly to GitHub Code Scanning.
+#
+# Results appear under:
+#   Repository -> Security -> Code scanning alerts
+
+name: CodeQL
+
+on:
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+  # Weekly scan, even if no code was pushed.
+  # Monday 01:00 UTC.
+  schedule:
+    - cron: "0 1 * * 1"
+
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+
+jobs:
+  analyze:
+    name: Analyze with CodeQL
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Initialize CodeQL for C/C++.
+      #
+      # queries:
+      #   security-and-quality = more checks than the default security-only set.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: c-cpp
+          queries: security-and-quality
+
+      # Configure your CMake project.
+      #
+      # CodeQL needs to observe a real build for compiled languages such as C++.
+      # Ninja is used because it is fast and works well on Linux runners.
+      - name: Configure CMake
+        run: cmake -B build-codeql -G Ninja -DCMAKE_BUILD_TYPE=Debug
+
+      # Build the project so CodeQL can trace compilation.
+      - name: Build
+        run: cmake --build build-codeql
+
+      # Run CodeQL analysis and upload results automatically.
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:c-cpp"

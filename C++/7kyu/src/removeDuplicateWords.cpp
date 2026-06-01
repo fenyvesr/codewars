@@ -26,7 +26,7 @@ std::string removeDuplicateWords(const std::string& str) {
         [&words](const auto& word) { return words.end() == std::find(words.begin(), words.end(), word); });
     /* Concatenating the word collection with spaces. */
     return std::accumulate(words.begin(), words.end(), std::string(),
-        [](std::string& acc, const std::string& word) {return acc + (acc.size() ? " " : "") + word; });
+        [](const std::string& acc, const std::string& word) {return acc + (acc.size() ? " " : "") + word; });
 }
 
 void removeDuplicateWordsTest (){
