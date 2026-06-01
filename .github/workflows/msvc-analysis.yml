@@ -32,6 +32,7 @@ env:
   # Separate build folder for MSVC analysis.
   # This avoids conflicts with your MinGW build folder.
   BUILD_DIR: ${{ github.workspace }}/C++/build-msvc-analysis
+  BUILD_TYPE: Release
 
 jobs:
   analyze:
@@ -57,7 +58,7 @@ jobs:
       # This is intentionally NOT using MinGW.
       # The Microsoft analyzer needs an MSVC/Visual Studio CMake build.
       - name: Configure CMake with MSVC
-        run: cmake -B "${{ env.BUILD_DIR }}" -G "Visual Studio 17 2022" -A x64
+        run: cmake -B "${{ env.BUILD_DIR }}" -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
       # Run Microsoft C++ Code Analysis.
       #
@@ -73,9 +74,10 @@ jobs:
       #   steps.run-analysis.outputs.sarif
       - name: Initialize MSVC Code Analysis
         id: run-analysis
-        uses: microsoft/msvc-code-analysis-action@04825f6d9e00f87422d6bf04e1a38b1f3ed60d99
+        uses: microsoft/msvc-code-analysis-action@v0.1.1
         with:
           cmakeBuildDirectory: ${{ env.BUILD_DIR }}
+          buildConfiguration: ${{ env.BUILD_TYPE }}
           ruleset: NativeRecommendedRules.ruleset
 
       # Upload the cleaned SARIF file to GitHub Code Scanning.
