@@ -14,7 +14,7 @@
 #include <cassert>   /* Needed for assert */
 #include <algorithm> /* Needed for std::equal */
 
-bool redacted(const std::string& doc1, const std::string& doc2)
+bool redacted(std::string_view doc1, std::string_view doc2)
 {
     /* Iterating over the two input strings and comparing the characters. */
     return std::equal(doc1.begin(), doc1.end(),
