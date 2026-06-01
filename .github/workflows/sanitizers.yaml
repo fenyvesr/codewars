@@ -1,0 +1,71 @@
+# GitHub Actions workflow for runtime sanitizers.
+#
+# AddressSanitizer detects memory errors:
+#   - use-after-free
+#   - buffer overflows
+#   - invalid memory access
+#
+# UndefinedBehaviorSanitizer detects undefined behavior:
+#   - signed integer overflow
+#   - invalid casts
+#   - null dereference patterns
+#
+# Sanitizers are runtime checks, so they only find bugs that are triggered
+# while your tests/programs run.
+
+name: C++ Sanitizers
+
+on:
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  sanitizers:
+    name: AddressSanitizer and UBSan
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ ninja-build
+
+      # Configure with sanitizer flags.
+      #
+      # -fsanitize=address,undefined:
+      #   Enables AddressSanitizer and UndefinedBehaviorSanitizer.
+      #
+      # -fno-omit-frame-pointer:
+      #   Gives better stack traces when sanitizer errors occur.
+      - name: Configure CMake with sanitizers
+        run: |
+          cmake -B build-sanitize -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_FLAGS="-fsanitize=address,undefined -fno-omit-frame-pointer" \
+            -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
+
+      - name: Build
+        run: cmake --build build-sanitize
+
+      # Run tests through CTest.
+      #
+      # ASAN_OPTIONS:
+      #   Improves error reporting and makes sanitizer failures stop the job.
+      - name: Run tests with sanitizers
+        env:
+          ASAN_OPTIONS: detect_leaks=1:halt_on_error=1
+          UBSAN_OPTIONS: halt_on_error=1:print_stacktrace=1
+        run: ctest --test-dir build-sanitize --output-on-failure

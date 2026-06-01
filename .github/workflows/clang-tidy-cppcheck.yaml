@@ -1,0 +1,84 @@
+# GitHub Actions workflow for clang-tidy and cppcheck.
+#
+# clang-tidy:
+#   Compiler-aware C++ static analysis, modernization checks,
+#   readability checks, bug-prone patterns, performance hints.
+#
+# cppcheck:
+#   Independent C/C++ static analyzer. It often finds different issues
+#   than clang-tidy and is useful as a complementary check.
+
+name: C++ Static Analysis
+
+on:
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  static-analysis:
+    name: clang-tidy and cppcheck
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install analysis tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-tidy cppcheck ninja-build
+
+      # Export compile_commands.json.
+      #
+      # clang-tidy and cppcheck use this compilation database to understand
+      # include paths, defines, language standard, and compiler flags.
+      - name: Configure CMake
+        run: |
+          cmake -B build-analysis -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      # Build first so generated headers/sources exist if your project creates any.
+      - name: Build
+        run: cmake --build build-analysis
+
+      # Run clang-tidy only on project source/header files.
+      #
+      # Adjust the find paths if your source layout is different.
+      # The command excludes the build directory to avoid checking generated files.
+      - name: Run clang-tidy
+        run: |
+          find . \
+            -path ./build-analysis -prune -o \
+            \( -name "*.cpp" -o -name "*.cxx" -o -name "*.cc" -o -name "*.hpp" -o -name "*.h" \) \
+            -print > clang_tidy_files.txt
+
+          if [ -s clang_tidy_files.txt ]; then
+            clang-tidy $(cat clang_tidy_files.txt) -p build-analysis
+          else
+            echo "No C++ files found for clang-tidy."
+          fi
+
+      # Run cppcheck using the CMake compilation database.
+      #
+      # --error-exitcode=1 makes the workflow fail if cppcheck finds issues.
+      # Remove it if you want cppcheck warnings without failing the build.
+      - name: Run cppcheck
+        run: |
+          cppcheck \
+            --enable=warning,style,performance,portability \
+            --std=c++17 \
+            --project=build-analysis/compile_commands.json \
+            --suppress=missingIncludeSystem \
+            --inline-suppr \
+            --error-exitcode=1

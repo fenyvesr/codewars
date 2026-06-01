@@ -1,0 +1,79 @@
+# Optional GitHub Actions workflow for SonarCloud.
+#
+# SonarCloud gives a dashboard for:
+#   - bugs
+#   - vulnerabilities
+#   - code smells
+#   - duplication
+#   - maintainability
+#
+# Before enabling this:
+#   1. Create a SonarCloud project.
+#   2. Add SONAR_TOKEN in GitHub:
+#      Repository -> Settings -> Secrets and variables -> Actions.
+#   3. Replace SONAR_PROJECT_KEY and SONAR_ORGANIZATION below.
+
+name: SonarCloud
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+env:
+  SONAR_PROJECT_KEY: replace-with-your-project-key
+  SONAR_ORGANIZATION: replace-with-your-organization
+
+jobs:
+  sonarcloud:
+    name: SonarCloud analysis
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install build tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ ninja-build
+
+      # Build wrapper is needed for C/C++ SonarCloud analysis.
+      - name: Install Sonar build-wrapper
+        run: |
+          curl -sSLo build-wrapper.zip https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
+          unzip -q build-wrapper.zip
+
+      - name: Configure CMake
+        run: cmake -B build-sonar -G Ninja -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Build with Sonar build-wrapper
+        run: |
+          ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 \
+            --out-dir bw-output \
+            cmake --build build-sonar
+
+      - name: Run SonarCloud scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: C++
+          args: >
+            -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
+            -Dsonar.cfamily.build-wrapper-output=C++/bw-output

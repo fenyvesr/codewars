@@ -1,0 +1,57 @@
+# GitHub Actions workflow for Include-What-You-Use.
+#
+# IWYU checks whether C++ files include what they actually use.
+# It helps remove unnecessary includes and add missing direct includes.
+#
+# This is useful, but can be noisy. I recommend keeping it optional at first.
+
+name: Include What You Use
+
+on:
+  workflow_dispatch:
+
+  push:
+    branches: [ main ]
+
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: read
+
+jobs:
+  iwyu:
+    name: Include-What-You-Use
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install IWYU
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iwyu ninja-build
+
+      - name: Configure CMake
+        run: |
+          cmake -B build-iwyu -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+      # CMake can run IWYU during compilation through CMAKE_CXX_INCLUDE_WHAT_YOU_USE.
+      #
+      # This reconfigures the project with IWYU enabled, then builds it.
+      - name: Configure with IWYU enabled
+        run: |
+          cmake -B build-iwyu -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+            -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use
+
+      - name: Build with IWYU
+        run: cmake --build build-iwyu
