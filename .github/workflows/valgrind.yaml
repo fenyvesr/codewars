@@ -57,4 +57,4 @@ jobs:
             --show-leak-kinds=all \
             --errors-for-leak-kinds=all \
             --error-exitcode=1 \
-            ./build-valgrind/Codewars
+            ./build-valgrind/CodeWars
