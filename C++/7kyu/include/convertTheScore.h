@@ -20,7 +20,7 @@
 #define _CONVERT_THE_SCORE_H_
 
 #include <vector> /* Needed for std::vector */
-#include <string> /* Needed for std::string, std::to_string, std::stoi */
+#include <string> /* Needed for std::string */
 
 /*!
     \brief       This function extracts the score information from a string

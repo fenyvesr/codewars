@@ -15,7 +15,7 @@
 #include <algorithm> /* Needed for std::transform, std::count_if */
 #include <iterator>  /* Needed for std::back_inserter */
 
-std::string fixStringCase(const std::string& str) {
+std::string fixStringCase(std::string_view str) {
     /* A string to contain the transformed input. */
     std::string res;
     /* A function reference deciding whether upper or lower case letters are needed in the output string. */

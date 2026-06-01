@@ -9,7 +9,7 @@
 ***                  This source contains the solution implementation for https://www.codewars.com/kata/5b662d286d0db722bd000013 and its test function.
 ***
 **/
-#include "cigarStringsEasy.h"
+#include "redacted.h"
 
 #include <cassert>   /* Needed for assert */
 #include <algorithm> /* Needed for std::equal */

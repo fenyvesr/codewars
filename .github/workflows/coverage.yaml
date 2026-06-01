@@ -1,0 +1,70 @@
+name: C++ Coverage
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  coverage:
+    name: Generate coverage report
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: C++
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++ cmake ninja-build gcovr
+
+      - name: Configure CMake with coverage flags
+        run: |
+          cmake -B build-coverage -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_FLAGS="--coverage -O0 -g" \
+            -DCMAKE_EXE_LINKER_FLAGS="--coverage"
+
+      - name: Build
+        run: cmake --build build-coverage
+
+      - name: Run tests
+        run: ctest --test-dir build-coverage --output-on-failure
+
+      - name: Generate coverage report
+        run: |
+          gcovr \
+            --root . \
+            --filter . \
+            --exclude "build-coverage/.*" \
+            --exclude "doc/.*" \
+            --exclude "Tools/.*" \
+            --html --html-details \
+            --output coverage.html \
+            --xml-pretty \
+            --xml coverage.xml \
+            --print-summary
+
+      - name: Upload coverage report as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: |
+            C++/coverage.html
+            C++/coverage.*.html
+            C++/coverage.xml
+
+      - name: Upload to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          files: C++/coverage.xml

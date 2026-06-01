@@ -18,7 +18,9 @@
 **/
 void returnLocationTest(){
     Person person(1, 2, 3);
-    int x = 0, y = 0, z = 0;
+    int x{ 0 };
+    int y{ 0 };
+    int z{ 0 };
     person.location(x, y, z);
     assert(("Wrong value of x", 1 == x));
     assert(("Wrong value of y", 2 == y));

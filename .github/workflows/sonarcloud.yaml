@@ -6,12 +6,13 @@
 #   - code smells
 #   - duplication
 #   - maintainability
+#   - test coverage
 #
 # Before enabling this:
 #   1. Create a SonarCloud project.
 #   2. Add SONAR_TOKEN in GitHub:
 #      Repository -> Settings -> Secrets and variables -> Actions.
-#   3. Replace SONAR_PROJECT_KEY and SONAR_ORGANIZATION below.
+#   3. Replace SONAR_PROJECT_KEY and SONAR_ORGANIZATION if needed.
 
 name: SonarCloud
 
@@ -47,25 +48,73 @@ jobs:
         with:
           fetch-depth: 0
 
+      # Install build tools and gcovr.
+      #
+      # gcovr is used to convert GCC/gcov coverage data
+      # into SonarQube/SonarCloud-compatible XML.
       - name: Install build tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y g++ ninja-build unzip curl
+          sudo apt-get install -y g++ ninja-build unzip curl gcovr
 
       # Build wrapper is needed for C/C++ SonarCloud analysis.
+      #
+      # It records compiler calls during the build so SonarCloud can understand
+      # include paths, compiler flags, defines, and translation units.
       - name: Install Sonar build-wrapper
         run: |
           curl -sSLo build-wrapper.zip https://sonarcloud.io/static/cpp/build-wrapper-linux-x86.zip
           unzip -q build-wrapper.zip
 
-      - name: Configure CMake
-        run: cmake -B build-sonar -G Ninja -DCMAKE_BUILD_TYPE=Debug
+      # Configure CMake with coverage flags.
+      #
+      # --coverage:
+      #   Enables GCC/gcov instrumentation.
+      #
+      # -O0:
+      #   Disables optimization so coverage maps cleanly to source lines.
+      #
+      # -g:
+      #   Adds debug information.
+      - name: Configure CMake with coverage
+        run: |
+          cmake -B build-sonar -G Ninja \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DCMAKE_CXX_FLAGS="--coverage -O0 -g" \
+            -DCMAKE_EXE_LINKER_FLAGS="--coverage"
 
+      # Build the project through Sonar's build-wrapper.
+      #
+      # This is important:
+      #   The build-wrapper must wrap the actual C++ compilation step.
       - name: Build with Sonar build-wrapper
         run: |
           ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 \
             --out-dir bw-output \
             cmake --build build-sonar
+
+      # Run tests so the instrumented executable generates coverage data.
+      #
+      # Without running tests, coverage will be empty or very low.
+      - name: Run tests
+        run: ctest --test-dir build-sonar --output-on-failure
+
+      # Generate SonarCloud-compatible coverage XML.
+      #
+      # gcovr --sonarqube creates the format expected by:
+      #   sonar.coverageReportPaths
+      - name: Generate SonarCloud coverage XML
+        run: |
+          gcovr \
+            --root . \
+            --filter . \
+            --exclude "build-sonar/.*" \
+            --exclude "doc/.*" \
+            --exclude "Tools/.*" \
+            --exclude "Testing/.*" \
+            --sonarqube \
+            --output coverage.xml \
+            --print-summary
 
       - name: Run SonarCloud scan
         uses: SonarSource/sonarqube-scan-action@v6
@@ -77,4 +126,5 @@ jobs:
             -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
             -Dsonar.cfamily.build-wrapper-output=${{ github.workspace }}/C++/bw-output
+            -Dsonar.coverageReportPaths=coverage.xml
             -Dsonar.exclusions=doc/**,build/**,Tools/**,Testing/**

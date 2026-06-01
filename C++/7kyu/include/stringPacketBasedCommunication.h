@@ -45,7 +45,7 @@
          "H1H10F1200120008F4F4" shall return "H1H1FFFF00200000F4F4"
     \warning          The packet has to be valid.
 */
-std::string stringPacketBasedCommunication(std::string packet);
+std::string stringPacketBasedCommunication(const std::string& packet);
 
 /*! \brief This function tests the stringPacketBasedCommunication function. **/
 void stringPacketBasedCommunicationTest ();
