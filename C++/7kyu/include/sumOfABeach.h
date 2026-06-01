@@ -22,7 +22,7 @@
     \par Example:
          "gOfIshsunesunFiSh" shall return 4.
 */
-int sumOfABeach(std::string s);
+std::ptrdiff_t sumOfABeach(std::string s);
 
 /*! \brief This function tests the sumOfABeach function. **/
 void sumOfABeachTest ();
