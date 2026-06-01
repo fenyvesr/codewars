@@ -33,7 +33,7 @@ class Person
           \param[out] y Returns the y coordinate of the person.
           \param[out] z Returns the z coordinate of the person.
         */
-        void location(int& x, int& y, int& z)
+        void location(int& x, int& y, int& z) const
         {
             x = m_x;
             y = m_y;

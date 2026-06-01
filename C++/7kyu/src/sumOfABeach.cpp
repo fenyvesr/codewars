@@ -17,7 +17,7 @@
 int sumOfABeach(std::string s){
     std::regex re("sand|water|fish|sun", std::regex_constants::icase); /* Regular expression case-insensitive for sand, water, fish and sum */
     /* Calculating the number of matches. */
-    return std::distance(std::sregex_iterator(s.begin(), s.end(), re), {});
+    return static_cast<int>(std::distance(std::sregex_iterator(s.begin(), s.end(), re), {}));
 }
 
 void sumOfABeachTest (){

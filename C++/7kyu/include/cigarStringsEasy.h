@@ -20,7 +20,7 @@
 #ifndef _CIGAR_STRINGS_EASY_H_
 #define _CIGAR_STRINGS_EASY_H_
 
-#include <string> /* Needed for std::string, std::to_string, std::stoi */
+#include <string_view> /* Needed for std::string_view */
 
 /*!
     \brief       This function decides whether the cigar string is valid and whether the read was successful or not.
@@ -31,7 +31,7 @@
          "36M", "ACTCTTCTTGCGAAAGTTCGGTTAGTAAAGGGGATG" shall return "True"\n
          "20M10S", "ACTCTTCTTGCGAAAGTTCGGTTAGTAAAG" shall return "False"
 */
-std::string cigarStringsEasy(const std::string& cigar, const std::string& nuc_seq);
+std::string cigarStringsEasy(std::string_view cigar, std::string_view nuc_seq);
 
 /*! \brief This function tests the cigarStringsEasy function. **/
 void cigarStringsEasyTest ();
