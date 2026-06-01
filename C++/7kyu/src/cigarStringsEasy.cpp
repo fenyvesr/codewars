@@ -20,7 +20,8 @@ std::string cigarStringsEasy(std::string_view cigar, std::string_view nuc_seq) {
     std::regex re("\\d+"); /* Regular expression describing a number. */
 
     /* Iterating over the cigar string and accumulating the numbers it contains. */
-    for (auto it = std::cregex_iterator(cigar.begin(), cigar.end(), re); it != std::cregex_iterator(); k += std::stoi(it++->str()));
+    using regex_iterator = std::regex_iterator<std::string_view::const_iterator>;
+    for (auto it = regex_iterator(cigar.begin(), cigar.end(), re); it != regex_iterator(); k += std::stoi(it++->str()));
     /* If the numbers do not add up to the length of the amino acid sequence, then it is an invalid cigar string. */
     /* Otherwise, it is a successful reading only if the cigar string has an xM format. */
     std::string isSuccessful( std::to_string(k) + "M" == cigar ? "True" : "False" );

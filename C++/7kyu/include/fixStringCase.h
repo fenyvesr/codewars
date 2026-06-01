@@ -16,6 +16,7 @@
 #define _FIX_STRING_CASE_H_
 
 #include <string_view> /* Needed for std::string_view */
+#include <string>  /* Needed for std::string */
 
 /*!
     \brief         This function changes the case of the characters in a string based on the original number of lower and upper case characters.

@@ -20,6 +20,7 @@
 #ifndef _CIGAR_STRINGS_EASY_H_
 #define _CIGAR_STRINGS_EASY_H_
 
+#include <string>      /* Needed for std::string */
 #include <string_view> /* Needed for std::string_view */
 
 /*!
