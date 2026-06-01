@@ -13,8 +13,7 @@
 ***
 **/
 
-#ifndef _REDACTED_H_
-#define _REDACTED_H_
+#pragma once
 
 #include <string_view> /* Needed for std::string_view */
 
@@ -29,8 +28,3 @@
          shall return true.
 */
 bool redacted(std::string_view doc1, std::string_view doc2);
-
-/*! \brief This function tests the redacted function. **/
-void redactedTest ();
-
-#endif /* _REDACTED_H_ */

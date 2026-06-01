@@ -23,8 +23,7 @@
 ***
 **/
 
-#ifndef _SMOOTH_NUMBERS_H_
-#define _SMOOTH_NUMBERS_H_
+#pragma once
 
 #include <string> /* Needed for std::string */
 
@@ -36,8 +35,3 @@
          16 shall return "power of 2"
 */
 std::string smoothNumbers(unsigned long n);
-
-/*! \brief This function tests the smoothNumbers function. **/
-void smoothNumbersTest ();
-
-#endif /* _SMOOTH_NUMBERS_H_ */

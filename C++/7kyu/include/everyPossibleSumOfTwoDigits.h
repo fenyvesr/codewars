@@ -14,8 +14,7 @@
 ***
 **/
 
-#ifndef _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_
-#define _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector, std::vector::begin, std::vector::end, prev, std::vector::push_back */
 
@@ -27,8 +26,3 @@
                  156 shall return { 6, 7, 11 }
 */
 std::vector<int> everyPossibleSumOfTwoDigits(int n);
-
-/*! \brief This function tests the everyPossibleSumOfTwoDigits function. **/
-void everyPossibleSumOfTwoDigitsTest ();
-
-#endif /* _EVERY_POSSIBLE_SUM_OF_TWO_DIGITS_H_ */

@@ -50,11 +50,11 @@ jobs:
       # CTest can run tests through Valgrind using CTEST_MEMORYCHECK_COMMAND.
       #
       # --error-exitcode=1 makes the job fail on Valgrind-detected errors.
-      - name: Run Codewars under Valgrind
+      - name: Run unit tests under Valgrind
         run: |
           valgrind \
             --leak-check=full \
             --show-leak-kinds=all \
             --errors-for-leak-kinds=all \
             --error-exitcode=1 \
-            ./build-valgrind/CodeWars
+            ./build-valgrind/CodeWarsTests

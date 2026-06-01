@@ -24,8 +24,7 @@ class Person
           \param y Sets this value as the y coordinate of the person.
           \param z Sets this value as the z coordinate of the person.
         */
-        Person(int x, int y, int z)
-            : m_x(x), m_y(y), m_z(z){}
+        Person(int x, int y, int z);
         
         /*! This function gets the location of a person */
         /*!
@@ -33,17 +32,10 @@ class Person
           \param[out] y Returns the y coordinate of the person.
           \param[out] z Returns the z coordinate of the person.
         */
-        void location(int& x, int& y, int& z) const
-        {
-            x = m_x;
-            y = m_y;
-            z = m_z;
-        }
+        void location(int& x, int& y, int& z) const;
         
     private:
         int m_x; /*!< \brief The x coordinate of a person. */
         int m_y; /*!< \brief The y coordinate of a person. */
         int m_z; /*!< \brief The z coordinate of a person. */
 };
-
-void returnLocationTest ();

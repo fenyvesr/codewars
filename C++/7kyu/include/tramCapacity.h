@@ -11,8 +11,7 @@
 ***
 **/
 
-#ifndef _TRAM_CAPACITY_H_
-#define _TRAM_CAPACITY_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector, std::vector::cbegin, std::vector::cend, std::vector::size, std::vector::begin */
 
@@ -26,8 +25,3 @@
          4, {0, 2, 4, 4} and {3, 5, 2, 0} shall return 6.
 */
 int tramCapacity(int stops, const std::vector<int>& a, const std::vector<int>& b);
-
-/*! \brief This function tests the tramCapacity function. **/
-void tramCapacityTest ();
-
-#endif /* _TRAM_CAPACITY_H_ */

@@ -11,7 +11,6 @@
 **/
 #include "cigarStringsEasy.h"
 
-#include <cassert> /* Needed for assert */
 #include <regex>   /* Needed for std::regex, std::sregex_iterator */
 #include <string>  /* Needed for std::stoi */ 
 
@@ -26,10 +25,4 @@ std::string cigarStringsEasy(std::string_view cigar, std::string_view nuc_seq) {
     /* Otherwise, it is a successful reading only if the cigar string has an xM format. */
     std::string isSuccessful( std::to_string(k) + "M" == cigar ? "True" : "False" );
     return k != nuc_seq.size() ? "Invalid cigar" : isSuccessful;
-}
-
-void cigarStringsEasyTest (){
-    assert(("Wrong value for \"ACTGC\" and \"5M\"", "True" == cigarStringsEasy("5M","ACTGC")));
-    assert(("Wrong value for \"ACTGC\" and \"3M2S\"", "False" == cigarStringsEasy("3M2S","ACTGC")));
-    assert(("Wrong value for \"ACTGC\" and \"5M\"", "Invalid cigar" == cigarStringsEasy("4M2S","ACTGC")));
 }

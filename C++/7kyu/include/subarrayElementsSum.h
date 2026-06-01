@@ -12,8 +12,7 @@
 ***
 **/
 
-#ifndef _SUBARRAY_ELEMENTS_SUM_H_
-#define _SUBARRAY_ELEMENTS_SUM_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector, std::vector::cbegin, std::vector::cend, std::vector::size */
 
@@ -28,8 +27,3 @@
          {{3, 2, 1, 0}, {4, 6, 5, 3, 2}, {}} and 5 shall return 1 + 6 + (5) = 12.
 */
 long subarrayElementsSum(const std::vector<std::vector<int>>& arr, int d = 0);
-
-/*! \brief This function tests the subarrayElementsSum function. **/
-void subarrayElementsSumTest ();
-
-#endif /* _SUBARRAY_ELEMENTS_SUM_H_ */

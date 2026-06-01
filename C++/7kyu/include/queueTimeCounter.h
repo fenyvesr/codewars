@@ -14,8 +14,7 @@
 ***
 **/
 
-#ifndef _QUEUE_TIME_COUNTER_H_
-#define _QUEUE_TIME_COUNTER_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector, std::vector::size */
 
@@ -31,8 +30,3 @@
         We just have to accumulate these values. \f$\displaystyle result = \sum_{i=0}^{pos} \min\left\{queuers[pos],queuers[i]\right\} + \sum_{i=pos+1}^{queuers.size()-1} \min\left\{queuers[pos]-1,queuers[i]\right\}\f$ .
 */
 long long queueTimeCounter(const std::vector<int>& queuers, int pos);
-
-/*! \brief This function tests the queueTimeCounter function. **/
-void queueTimeCounterTest ();
-
-#endif /* _QUEUE_TIME_COUNTER_H_ */

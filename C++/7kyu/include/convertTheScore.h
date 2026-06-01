@@ -16,8 +16,7 @@
 ***
 **/
 
-#ifndef _CONVERT_THE_SCORE_H_
-#define _CONVERT_THE_SCORE_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector */
 #include <string> /* Needed for std::string */
@@ -33,8 +32,3 @@
              "nil", "one", "two", "three", "four", "five", "six", "seven", "eight" or "nine".
 */
 std::vector<int> convertTheScore(const std::string& s);
-
-/*! \brief This function tests the convertTheScore function. **/
-void convertTheScoreTest ();
-
-#endif /* _CONVERT_THE_SCORE_H_ */

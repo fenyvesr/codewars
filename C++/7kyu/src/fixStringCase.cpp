@@ -11,9 +11,8 @@
 **/
 #include "fixStringCase.h"
 
-#include <cassert>   /* Needed for assert */
-#include <algorithm> /* Needed for std::transform, std::count_if */
 #include <iterator>  /* Needed for std::back_inserter */
+#include <algorithm> /* Needed for std::transform, std::count_if */
 
 std::string fixStringCase(std::string_view str) {
     /* A string to contain the transformed input. */
@@ -23,10 +22,4 @@ std::string fixStringCase(std::string_view str) {
     /* Transforming the input string with the previously choosen function. */
     std::transform(str.cbegin(), str.cend(), std::back_inserter(res), func);
     return res;
-}
-
-void fixStringCaseTest (){
-    assert(("Wrong value for \"coDe\"", "code" == fixStringCase("coDe")));
-    assert(("Wrong value for \"CODe\"", "CODE" == fixStringCase("CODe")));
-    assert(("Wrong value for \"COde\"", "code" == fixStringCase("COde")));
 }
