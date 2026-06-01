@@ -28,7 +28,7 @@
     \par Example:
                   141 and {{1,55}, {0,25}} shall return "I need to work 0 hour(s) and 1 minute(s)".
 */
-std::string offloadYourWork(int projectMinutes, std::vector<std::pair<int, int>> freelancers);
+std::string offloadYourWork(int projectMinutes,const std::vector<std::pair<int, int>>& freelancers);
 
 /*! \brief This function tests the offloadYourWork function. **/
 void offloadYourWorkTest ();

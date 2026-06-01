@@ -13,7 +13,7 @@
 
 #include <cassert> /* Needed for assert*/
 
-std::string offloadYourWork(int projectMinutes, std::vector<std::pair<int, int>> freelancers){
+std::string offloadYourWork(int projectMinutes, const std::vector<std::pair<int, int>>& freelancers){
     /* We can reduce the project minutes by the available freelancer resource minutes. */
     for (auto freelancer : freelancers)
         projectMinutes -= freelancer.first * 60 + freelancer.second;
