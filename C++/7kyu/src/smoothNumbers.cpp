@@ -11,8 +11,6 @@
 **/
 #include "smoothNumbers.h"
 
-#include <cassert> /* Needed for assert */
-
 std::string smoothNumbers(unsigned long n){
     int max; /* The maximum divisor. */
     /* Dividing n with the divisor. */
@@ -32,12 +30,4 @@ std::string smoothNumbers(unsigned long n){
         result = "non-smooth";
 
     return result;
-}
-
-void smoothNumbersTest (){
-    assert(("Wrong value for 16"  , "power of 2"     == smoothNumbers(16 )));
-    assert(("Wrong value for 36"  , "3-smooth"       == smoothNumbers(36 )));
-    assert(("Wrong value for 60"  , "Hamming number" == smoothNumbers(60 )));
-    assert(("Wrong value for 98"  , "humble number"  == smoothNumbers(98 )));
-    assert(("Wrong value for 111" , "non-smooth"     == smoothNumbers(111)));
 }

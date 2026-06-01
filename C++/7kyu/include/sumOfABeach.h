@@ -10,8 +10,7 @@
 ***
 **/
 
-#ifndef _SUM_OF_A_BEACH_H_
-#define _SUM_OF_A_BEACH_H_
+#pragma once
 
 #include <string> /* Needed for std::string, std::string::begin, std::string::end */
 
@@ -23,8 +22,3 @@
          "gOfIshsunesunFiSh" shall return 4.
 */
 std::ptrdiff_t sumOfABeach(std::string s);
-
-/*! \brief This function tests the sumOfABeach function. **/
-void sumOfABeachTest ();
-
-#endif /* _SUM_OF_A_BEACH_H_ */

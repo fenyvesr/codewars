@@ -32,8 +32,7 @@
 ***
 **/
 
-#ifndef _STRING_PACKET_BASED_COMMUNICATION_H_
-#define _STRING_PACKET_BASED_COMMUNICATION_H_
+#pragma once
 
 #include <string> /* Needed for std::string, std::stoi, std::to_string, std::string::size() */
 
@@ -46,8 +45,3 @@
     \warning          The packet has to be valid.
 */
 std::string stringPacketBasedCommunication(const std::string& packet);
-
-/*! \brief This function tests the stringPacketBasedCommunication function. **/
-void stringPacketBasedCommunicationTest ();
-
-#endif /* _STRING_PACKET_BASED_COMMUNICATION_H_ */

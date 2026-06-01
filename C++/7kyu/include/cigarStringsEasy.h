@@ -17,8 +17,7 @@
 ***
 **/
 
-#ifndef _CIGAR_STRINGS_EASY_H_
-#define _CIGAR_STRINGS_EASY_H_
+#pragma once
 
 #include <string>      /* Needed for std::string */
 #include <string_view> /* Needed for std::string_view */
@@ -33,8 +32,3 @@
          "20M10S", "ACTCTTCTTGCGAAAGTTCGGTTAGTAAAG" shall return "False"
 */
 std::string cigarStringsEasy(std::string_view cigar, std::string_view nuc_seq);
-
-/*! \brief This function tests the cigarStringsEasy function. **/
-void cigarStringsEasyTest ();
-
-#endif /* _CIGAR_STRINGS_EASY_H_ */

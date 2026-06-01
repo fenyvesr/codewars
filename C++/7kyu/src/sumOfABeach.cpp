@@ -11,18 +11,10 @@
 **/
 #include "sumOfABeach.h"
 
-#include <cassert> /* Needed for assert */
 #include <regex>   /* Needed for std::regex, std::regex_constants::icase */
 
 std::ptrdiff_t sumOfABeach(std::string s){
     std::regex re("sand|water|fish|sun", std::regex_constants::icase); /* Regular expression case-insensitive for sand, water, fish and sum */
     /* Calculating the number of matches. */
     return std::distance(std::sregex_iterator(s.begin(), s.end(), re), {});
-}
-
-void sumOfABeachTest (){
-    assert(("Wrong value for \"WAtErSlIde\""                 , 1 == sumOfABeach("WAtErSlIde")));
-    assert(("Wrong value for \"GolDeNSanDyWateRyBeaChSuNN\"" , 3 == sumOfABeach("GolDeNSanDyWateRyBeaChSuNN")));
-    assert(("Wrong value for \"gOfIshsunesunFiSh\""          , 4 == sumOfABeach("gOfIshsunesunFiSh")));
-    assert(("Wrong value for \"cItYTowNcARShoW\""            , 0 == sumOfABeach("cItYTowNcARShoW")));
 }

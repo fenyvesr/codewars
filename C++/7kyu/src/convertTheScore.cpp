@@ -11,9 +11,8 @@
 **/
 #include "convertTheScore.h"
 
-#include <regex>   /* Needed for std::regex, std::smatch, std::regex_search */
 #include <map>     /* Needed for std::map */
-#include <cassert> /* Needed for assert */
+#include <regex>   /* Needed for std::regex, std::smatch, std::regex_search */
 
 /*! \brief This string contains the different possibilities as scores. */
 const std::string numbers = "(nil|one|two|three|four|five|six|seven|eight|nine)";
@@ -26,11 +25,4 @@ std::vector<int> convertTheScore(const std::string& s) {
     std::regex_search(s, m, std::regex(numbers + ".*" + numbers));
     /* Returning the scores as numbers as a pair. */
     return { mapString.at(m[1].str()), mapString.at(m[2].str()) };
-}
-
-void convertTheScoreTest (){
-    assert(("Wrong value for \"The score is four nil\"", std::vector<int> {4,0} == convertTheScore("The score is four nil")));
-    assert(("Wrong value for \"new score: two three\"", std::vector<int> {2,3} == convertTheScore("new score: two three")));
-    assert(("Wrong value for \"two two\"", std::vector<int> {2,2} == convertTheScore("two two")));
-    assert(("Wrong value for \"Arsenal just conceded another goal, two nil\"", std::vector<int> {2,0} == convertTheScore("Arsenal just conceded another goal, two nil")));
 }

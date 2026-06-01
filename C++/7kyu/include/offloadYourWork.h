@@ -14,8 +14,7 @@
 ***
 **/
 
-#ifndef _OFFLOAD_YOUR_WORK_H_
-#define _OFFLOAD_YOUR_WORK_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector, std::pair */
 #include <string> /* Needed for std::string, std::to_string */
@@ -29,8 +28,3 @@
                   141 and {{1,55}, {0,25}} shall return "I need to work 0 hour(s) and 1 minute(s)".
 */
 std::string offloadYourWork(int projectMinutes,const std::vector<std::pair<int, int>>& freelancers);
-
-/*! \brief This function tests the offloadYourWork function. **/
-void offloadYourWorkTest ();
-
-#endif /* _OFFLOAD_YOUR_WORK_H_ */

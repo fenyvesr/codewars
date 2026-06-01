@@ -11,12 +11,11 @@
 **/
 #include "removeDuplicateWords.h"
 
-#include <cassert>   /* Needed for assert */
 #include <vector>    /* Needed for std::vector, std::back_inserter, std::vector::begin, std::vector::end */
 #include <numeric>   /* Needed for std::accumulate */
-#include <algorithm> /* Needed for std::copy_if */
 #include <sstream>   /* Needed for std::istringstream, std::istream_iterator */
 #include <iterator>  /* Needed for std::istream_iterator */
+#include <algorithm> /* Needed for std::copy_if */
 
 std::string removeDuplicateWords(const std::string& str) {
     std::istringstream iss(str); /* Input string stream based on the input string. */
@@ -27,9 +26,4 @@ std::string removeDuplicateWords(const std::string& str) {
     /* Concatenating the word collection with spaces. */
     return std::accumulate(words.begin(), words.end(), std::string(),
         [](const std::string& acc, const std::string& word) {return acc + (acc.size() ? " " : "") + word; });
-}
-
-void removeDuplicateWordsTest (){
-    assert(("Wrong value for \"alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta\"" , "alpha beta gamma delta" == removeDuplicateWords("alpha beta beta gamma gamma gamma delta alpha beta beta gamma gamma gamma delta")));
-    assert(("Wrong value for \"my cat is cat fat\"" , "my cat is fat" == removeDuplicateWords("my cat is cat fat")));
 }

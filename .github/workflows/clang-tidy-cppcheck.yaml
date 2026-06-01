@@ -81,4 +81,5 @@ jobs:
             --project=build-analysis/compile_commands.json \
             --suppress=missingIncludeSystem \
             --inline-suppr \
-            --error-exitcode=1
+            --error-exitcode=1 \
+            -ibuild-analysis/_deps

@@ -28,9 +28,6 @@ echo Running tests...
 echo Generating documentation...
 "%DOXYGEN_PATH%\doxygen.exe" "%~dp0Doxygen_config" || goto :error
 
-echo Running program...
-"%BUILD_DIR%\Codewars.exe" || goto :error
-
 echo.
 echo Done.
 exit /b 0
@@ -62,6 +59,5 @@ echo   1. Configures the project with CMake.
 echo   2. Builds the project using MinGW Makefiles.
 echo   3. Runs the CTest tests.
 echo   4. Generates Doxygen documentation.
-echo   5. Runs Codewars.exe.
 echo.
 exit /b 0

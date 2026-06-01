@@ -12,8 +12,7 @@
 ***
 **/
 
-#ifndef _LEONARDO_NUMBERS_H_
-#define _LEONARDO_NUMBERS_H_
+#pragma once
 
 #include <vector> /* Needed for std::vector */
 
@@ -29,8 +28,3 @@
     \warning       The input n shall be always greater than or equal to 2.
 */
 std::vector<int> leonardoNumbers (int n, int L0, int L1, int add);
-
-/*! \brief This function tests the leonardoNumbers function. **/
-void leonardoNumbersTest ();
-
-#endif /* _LEONARDO_NUMBERS_H_ */

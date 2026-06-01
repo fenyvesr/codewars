@@ -12,11 +12,10 @@
 ***
 **/
 
-#ifndef _FIX_STRING_CASE_H_
-#define _FIX_STRING_CASE_H_
+#pragma once
 
+#include <string>      /* Needed for std::string */
 #include <string_view> /* Needed for std::string_view */
-#include <string>  /* Needed for std::string */
 
 /*!
     \brief         This function changes the case of the characters in a string based on the original number of lower and upper case characters.
@@ -27,8 +26,3 @@
          "CODe" shall return "CODE"
 */
 std::string fixStringCase(std::string_view str);
-
-/*! \brief This function tests the fixStringCase function. **/
-void fixStringCaseTest ();
-
-#endif /* _FIX_STRING_CASE_H_ */
