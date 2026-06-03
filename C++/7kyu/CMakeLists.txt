@@ -10,7 +10,7 @@ add_library(7kyu src/redacted.cpp
                  src/offloadYourWork.cpp
                  src/cigarStringsEasy.cpp
                  src/queueTimeCounter.cpp
-                 src/subarrayElementsSum.cpp
+                 src/subArrayElementsSum.cpp
                  src/removeDuplicateWords.cpp
                  src/everyPossibleSumOfTwoDigits.cpp
                  src/stringPacketBasedCommunication.cpp
