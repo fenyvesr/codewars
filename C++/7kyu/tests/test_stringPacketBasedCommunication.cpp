@@ -39,6 +39,7 @@ INSTANTIATE_TEST_CASE_P(
         StringPacketBasedCommunicationTestCase{"AB120F1200100002CD34", "AB12FFFF00120000CD34"},
         StringPacketBasedCommunicationTestCase{"AB120F1201000002CD34", "AB12FFFF01020000CD34"},
         StringPacketBasedCommunicationTestCase{"AB120F1210000002CD34", "AB12FFFF10020000CD34"},
+        StringPacketBasedCommunicationTestCase{"AB12C3D900110011CD34", "AB12FFFF01210000CD34"},
 
         // Clamp edge cases
         StringPacketBasedCommunicationTestCase{"AB12B7A200010002CD34", "AB12FFFF00000000CD34"},
@@ -50,41 +51,43 @@ INSTANTIATE_TEST_CASE_P(
         StringPacketBasedCommunicationTestCase{"00000F12000000009999", "0000FFFF000000009999"},
         StringPacketBasedCommunicationTestCase{"00000F12999900009999", "0000FFFF999900009999"},
         StringPacketBasedCommunicationTestCase{"0000B7A2999900009999", "0000FFFF999900009999"},
-        StringPacketBasedCommunicationTestCase{"0000C3D9000009999999", "0000FFFF000000009999"}
+        StringPacketBasedCommunicationTestCase{"0000C3D9000009999999", "0000FFFF000000009999"},
+        StringPacketBasedCommunicationTestCase{"AB12C3D901010099CD34", "AB12FFFF99990000CD34"},
+        StringPacketBasedCommunicationTestCase{"AB12B7A200100001CD34", "AB12FFFF00090000CD34"}
     )
 );
 
 TEST(StringPacketBasedCommunicationCrashTest, ThrowsForUnknownInstructionCode) {
     EXPECT_THROW(
         stringPacketBasedCommunication("AB12DEAD00010002CD34"),
-        std::out_of_range
+        std::invalid_argument
     );
 }
 
 TEST(StringPacketBasedCommunicationCrashTest, ThrowsForTooShortPacket) {
     EXPECT_THROW(
         stringPacketBasedCommunication("AB120F1200010002"),
-        std::out_of_range
+        std::invalid_argument
     );
 }
 
 TEST(StringPacketBasedCommunicationCrashTest, ThrowsForTooLongPacket) {
     EXPECT_THROW(
         stringPacketBasedCommunication("AB120F1200010002CD34XX"),
-        std::out_of_range
+        std::invalid_argument
     );
 }
 
 TEST(StringPacketBasedCommunicationCrashTest, ThrowsForNonDigitOperand) {
     EXPECT_THROW(
         stringPacketBasedCommunication("AB120F12AA010002CD34"),
-        std::out_of_range
+        std::invalid_argument
     );
 }
 
 TEST(StringPacketBasedCommunicationCrashTest, ThrowsForMissingPacket) {
     EXPECT_THROW(
         stringPacketBasedCommunication(""),
-        std::out_of_range
+        std::invalid_argument
     );
 }
