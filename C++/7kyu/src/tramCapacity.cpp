@@ -11,11 +11,13 @@
 **/
 #include "tramCapacity.h"
 
-#include <numeric>   /* Needed for std::partial_sum */
-#include <algorithm> /* Needed for std::transform, std::max_element */
-#include <iterator>  /* Needed for std::back_inserter */
+#include <numeric> /* Needed for std::inner_product */
+#include <stdexcept> /* Needed for std::invalid_argument */
 
 int tramCapacity(int stops, const std::vector<int>& a, const std::vector<int>& b){
+    if (stops < 0 || a.size() < static_cast<size_t>(stops) || b.size() < static_cast<size_t>(stops)) {
+        throw std::invalid_argument("Invalid tram input");
+    }
     return std::inner_product(
         a.cbegin(), 
         std::min(a.cbegin() + stops, a.cend()), /* End after the last stop is reached or when the vector ends. */

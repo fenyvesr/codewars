@@ -52,22 +52,21 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(googletest)
 
     add_executable(CodeWarsTests
-        tests/test_main.cpp
-        tests/7kyu/test_cigarStringsEasy.cpp
-        tests/7kyu/test_convertTheScore.cpp
-        tests/7kyu/test_everyPossibleSumOfTwoDigits.cpp
-        tests/7kyu/test_fixStringCase.cpp
-        tests/7kyu/test_leonardoNumbers.cpp
-        tests/7kyu/test_offloadYourWork.cpp
-        tests/7kyu/test_queueTimeCounter.cpp
-        tests/7kyu/test_redacted.cpp
-        tests/7kyu/test_removeDuplicateWords.cpp
-        tests/7kyu/test_smoothNumbers.cpp
-        tests/7kyu/test_stringPacketBasedCommunication.cpp
-        tests/7kyu/test_subarrayElementsSum.cpp
-        tests/7kyu/test_sumOfABeach.cpp
-        tests/7kyu/test_tramCapacity.cpp
-        tests/8kyu/test_returnLocation.cpp
+        7kyu/tests/test_cigarStringsEasy.cpp
+        7kyu/tests/test_convertTheScore.cpp
+        7kyu/tests/test_everyPossibleSumOfTwoDigits.cpp
+        7kyu/tests/test_fixStringCase.cpp
+        7kyu/tests/test_leonardoNumbers.cpp
+        7kyu/tests/test_offloadYourWork.cpp
+        7kyu/tests/test_queueTimeCounter.cpp
+        7kyu/tests/test_redacted.cpp
+        7kyu/tests/test_removeDuplicateWords.cpp
+        7kyu/tests/test_smoothNumbers.cpp
+        7kyu/tests/test_stringPacketBasedCommunication.cpp
+        7kyu/tests/test_subArrayElementsSum.cpp
+        7kyu/tests/test_sumOfABeach.cpp
+        7kyu/tests/test_tramCapacity.cpp
+        8kyu/tests/test_returnLocation.cpp
     )
 
     target_link_libraries(CodeWarsTests

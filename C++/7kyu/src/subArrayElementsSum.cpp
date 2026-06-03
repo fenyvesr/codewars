@@ -1,5 +1,5 @@
 /*!
-***     \file        subarrayElementsSum.cpp
+***     \file        subArrayElementsSum.cpp
 ***
 ***     \authors     Robert Fenyvesi <fenyvesr@gmail.com>
 ***
@@ -9,11 +9,11 @@
 ***                  This source contains the solution implementation for https://www.codewars.com/kata/5b5e0ef007a26632c400002a and its test function.
 ***
 **/
-#include "subarrayElementsSum.h"
+#include "subArrayElementsSum.h"
 
 #include <numeric> /* Needed for std::accumulate */
 
-long subarrayElementsSum(const std::vector<std::vector<int>>& arr, int d){
+long subArrayElementsSum(const std::vector<std::vector<int>>& arr, int d){
   /* Summing the required members in the input vectors */
   return std::accumulate(arr.cbegin(), arr.cend(), 0,
                          [i{arr.size()}, d](const long& acc, auto& b) mutable {

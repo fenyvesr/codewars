@@ -1,5 +1,5 @@
 /*!
-***     \file        subarrayElementsSum.h
+***     \file        subArrayElementsSum.h
 ***
 ***     \authors     Robert Fenyvesi <fenyvesr@gmail.com>
 ***
@@ -26,4 +26,4 @@
          {{3}, {4, 6, 5, 3, 2}, {9, 8, 7, 4}} shall return 0 + 6 + 9 = 15\n
          {{3, 2, 1, 0}, {4, 6, 5, 3, 2}, {}} and 5 shall return 1 + 6 + (5) = 12.
 */
-long subarrayElementsSum(const std::vector<std::vector<int>>& arr, int d = 0);
+long subArrayElementsSum(const std::vector<std::vector<int>>& arr, int d = 0);
