@@ -127,4 +127,4 @@ jobs:
             -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
             -Dsonar.cfamily.build-wrapper-output=${{ github.workspace }}/C++/bw-output
             -Dsonar.coverageReportPaths=coverage.xml
-            -Dsonar.exclusions=doc/**,build/**,build-sonar/**,build-sonar/_deps/**,**/_deps/**,Tools/**,Testing/**,tests/**
+            -Dsonar.exclusions=doc/**,build/**,build-sonar/**,build-sonar/_deps/**,**/_deps/**,Tools/**,Testing/**,**/tests/**
