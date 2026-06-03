@@ -108,11 +108,14 @@ jobs:
           gcovr \
             --root . \
             --filter . \
-            --exclude "build-sonar/.*" \
+            --exclude "build-coverage/.*" \
             --exclude "doc/.*" \
             --exclude "Tools/.*" \
-            --exclude "Testing/.*" \
+            --exclude ".*/tests/.*" \
+            --exclude ".*/usr/.*" \
             --sonarqube \
+            --xml-pretty \
+            --xml coverage.xml \
             --output coverage.xml \
             --print-summary
 
@@ -125,6 +128,6 @@ jobs:
           args: >
             -Dsonar.projectKey=${{ env.SONAR_PROJECT_KEY }}
             -Dsonar.organization=${{ env.SONAR_ORGANIZATION }}
-            -Dsonar.cfamily.build-wrapper-output=${{ github.workspace }}/C++/bw-output
+            -Dsonar.cfamily.compile-commands=${{ github.workspace }}/C++/bw-output/compile_commands.json
             -Dsonar.coverageReportPaths=coverage.xml
             -Dsonar.exclusions=doc/**,build/**,build-sonar/**,build-sonar/_deps/**,**/_deps/**,Tools/**,Testing/**,**/tests/**

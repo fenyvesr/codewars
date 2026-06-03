@@ -49,7 +49,7 @@ jobs:
             --exclude "build-coverage/.*" \
             --exclude "doc/.*" \
             --exclude "Tools/.*" \
-            --exclude ".*/test/.*" \
+            --exclude ".*/tests/.*" \
             --exclude ".*/usr/.*" \
             --html --html-details \
             --output coverage.html \
