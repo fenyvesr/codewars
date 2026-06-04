@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b4e474305f04bea11000148
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b4e474305f04bea11000148 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b4e474305f04bea11000148.
 ***
 **/
 #include "everyPossibleSumOfTwoDigits.h"

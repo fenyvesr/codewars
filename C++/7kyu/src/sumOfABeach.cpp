@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b3e1dca3da310a4390000f3
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b3e1dca3da310a4390000f3 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b3e1dca3da310a4390000f3.
 ***
 **/
 #include "sumOfABeach.h"

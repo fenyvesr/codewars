@@ -56,6 +56,7 @@ if(BUILD_TESTING)
         7kyu/tests/test_convertTheScore.cpp
         7kyu/tests/test_everyPossibleSumOfTwoDigits.cpp
         7kyu/tests/test_fixStringCase.cpp
+        7kyu/tests/test_jumbler.cpp
         7kyu/tests/test_leonardoNumbers.cpp
         7kyu/tests/test_offloadYourWork.cpp
         7kyu/tests/test_queueTimeCounter.cpp

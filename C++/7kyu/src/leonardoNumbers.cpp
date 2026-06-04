@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b2117eea454c89d4400005f
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2117eea454c89d4400005f and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2117eea454c89d4400005f.
 ***
 **/
 #include "leonardoNumbers.h"

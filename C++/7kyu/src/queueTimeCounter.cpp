@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b538734beb8654d6b00016d
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b538734beb8654d6b00016d and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b538734beb8654d6b00016d.
 ***
 **/
 #include "queueTimeCounter.h"

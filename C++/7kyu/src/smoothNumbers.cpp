@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b2f6ad842b27ea689000082
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2f6ad842b27ea689000082 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2f6ad842b27ea689000082.
 ***
 **/
 #include "smoothNumbers.h"

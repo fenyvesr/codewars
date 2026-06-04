@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b5e0ef007a26632c400002a
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b5e0ef007a26632c400002a and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b5e0ef007a26632c400002a.
 ***
 **/
 #include "subArrayElementsSum.h"

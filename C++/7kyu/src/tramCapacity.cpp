@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b190aa7803388ec97000054
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b190aa7803388ec97000054 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b190aa7803388ec97000054.
 ***
 **/
 #include "tramCapacity.h"
