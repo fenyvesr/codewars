@@ -52,6 +52,7 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(googletest)
 
     add_executable(CodeWarsTests
+        6kyu/tests/test_ancestorVariations.cpp
         6kyu/tests/test_largestGreatestCommonDivisor.cpp
         6kyu/tests/test_midiFiles.cpp
         6kyu/tests/test_snakeEye.cpp
