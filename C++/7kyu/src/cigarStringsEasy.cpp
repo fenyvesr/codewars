@@ -24,5 +24,5 @@ std::string cigarStringsEasy(std::string_view cigar, std::string_view nuc_seq) {
     /* If the numbers do not add up to the length of the amino acid sequence, then it is an invalid cigar string. */
     /* Otherwise, it is a successful reading only if the cigar string has an xM format. */
     std::string isSuccessful( std::to_string(k) + "M" == cigar ? "True" : "False" );
-    return k != nuc_seq.size() ? "Invalid cigar" : isSuccessful;
+    return k != nuc_seq.size() ? std::string("Invalid cigar") : isSuccessful;
 }
