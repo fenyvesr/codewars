@@ -25,11 +25,15 @@ INSTANTIATE_TEST_CASE_P(
     CountCodepointsTests,
     CountCodepointsTest,
     ::testing::Values(
-        // Original/basic examples
-        CountCodepointsTestCase{u8"", 0},
-        CountCodepointsTestCase{u8"Aÿ♠🙉", 4},
-        CountCodepointsTestCase{u8"é", 1}, // (actual é character)
-        CountCodepointsTestCase{u8"é", 2}, // (e + combining acute accent)
-        CountCodepointsTestCase{u8"㐷©∏!重", 5}
+    // Original/basic examples
+    CountCodepointsTestCase{u8"", 0},
+    // A ÿ ♠ 🙉
+    CountCodepointsTestCase{"A\xC3\xBF\xE2\x99\xA0\xF0\x9F\x99\x89", 4},
+    // é
+    CountCodepointsTestCase{"\xC3\xA9", 1},
+    // e + combining acute accent
+    CountCodepointsTestCase{"e\xCC\x81", 2},
+    // 㐷 © ∏ ! 重
+    CountCodepointsTestCase{"\xE3\x90\xB7\xC2\xA9\xE2\x88\x8F!\xE9\x87\x8D", 5}
     )
 );
