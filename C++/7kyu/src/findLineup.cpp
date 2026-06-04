@@ -19,6 +19,6 @@ std::vector<std::size_t> find_lineup(const std::vector<std::size_t>& distances){
     /* Iterating over the input vector and filling the result vector based on the distances. */
     return std::all_of(distances.begin(), distances.end(),
         [&, i = std::size_t{0}](std::size_t d) mutable {
-            return d < result.size() && !result[d] && (result[d] = ++i);}
+            return d < result.size() && !result[d] && (result[d] = ++i);} // NOSONAR - Short-circuiting is intended for performance purposes.
     ) ? result : std::vector<std::size_t>{};
 }
