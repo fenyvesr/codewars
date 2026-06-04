@@ -13,7 +13,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # ------------------------------------------------------------
 add_subdirectory(8kyu)
 add_subdirectory(7kyu)
-
+add_subdirectory(6kyu)
 # ------------------------------------------------------------
 # Combined CodeWars library
 # ------------------------------------------------------------
@@ -23,14 +23,14 @@ target_link_libraries(CodeWars
     INTERFACE
         8kyu
         7kyu
+        6kyu
 )
 
 target_include_directories(CodeWars
     INTERFACE
-        "${PROJECT_SOURCE_DIR}/8kyu"
-        "${PROJECT_SOURCE_DIR}/7kyu"
         "${PROJECT_SOURCE_DIR}/8kyu/include"
         "${PROJECT_SOURCE_DIR}/7kyu/include"
+        "${PROJECT_SOURCE_DIR}/6kyu/include"
 )
 
 # ------------------------------------------------------------
@@ -52,6 +52,7 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(googletest)
 
     add_executable(CodeWarsTests
+        6kyu/tests/test_midiFiles.cpp
         7kyu/tests/test_cigarStringsEasy.cpp
         7kyu/tests/test_convertTheScore.cpp
         7kyu/tests/test_countCodePoints.cpp
