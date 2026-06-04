@@ -54,6 +54,7 @@ if(BUILD_TESTING)
     add_executable(CodeWarsTests
         6kyu/tests/test_ancestorVariations.cpp
         6kyu/tests/test_midiFiles.cpp
+        6kyu/tests/test_snakeEye.cpp
         7kyu/tests/test_cigarStringsEasy.cpp
         7kyu/tests/test_convertTheScore.cpp
         7kyu/tests/test_countCodePoints.cpp
