@@ -23,7 +23,7 @@
     \param[in]   utf8 The UTF-8 encoded string to analyze
     \returns     The number of codepoints in the string
     \par Examples:
-         "Aÿ♠🙉" shall return 4\n
-         "㐷©∏!重" shall return 5
+         "A\xC3\xBF\xE2\x99\xA0\xF0\x9F\x99\x89" shall return 4\n
+         "\xE3\x90\xB7\xC2\xA9\xE2\x88\x8F!\xE9\x87\x8D" shall return 5
 */
 std::size_t CountCodepoints(std::string_view utf8);
