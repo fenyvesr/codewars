@@ -2,6 +2,7 @@ include_directories("${PROJECT_SOURCE_DIR}/7kyu/include")
 
 add_library(7kyu src/jumbler.cpp
                  src/redacted.cpp
+                 src/findLineup.cpp
                  src/sumOfABeach.cpp
                  src/tramCapacity.cpp
                  src/fixStringCase.cpp

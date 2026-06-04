@@ -55,6 +55,7 @@ if(BUILD_TESTING)
         7kyu/tests/test_cigarStringsEasy.cpp
         7kyu/tests/test_convertTheScore.cpp
         7kyu/tests/test_everyPossibleSumOfTwoDigits.cpp
+        7kyu/tests/test_findLineup.cpp
         7kyu/tests/test_fixStringCase.cpp
         7kyu/tests/test_jumbler.cpp
         7kyu/tests/test_leonardoNumbers.cpp
