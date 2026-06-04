@@ -51,6 +51,21 @@ INSTANTIATE_TEST_CASE_P(
         CigarStringsEasyTestCase{"0M", "A", "Invalid cigar"},
         CigarStringsEasyTestCase{"1M1S", "A", "Invalid cigar"},
 
+        // No numeric run in the CIGAR string: the regex loop is not entered
+        CigarStringsEasyTestCase{"", "", "False"},
+        CigarStringsEasyTestCase{"M", "", "False"},
+        CigarStringsEasyTestCase{"S", "", "False"},
+        CigarStringsEasyTestCase{"abc", "", "False"},
+        CigarStringsEasyTestCase{"abc", "A", "Invalid cigar"},
+
+        // Digits are present, but the full CIGAR is not exactly "<length>M"
+        CigarStringsEasyTestCase{"5", "ACTGC", "False"},
+        CigarStringsEasyTestCase{"A5M", "ACTGC", "False"},
+        CigarStringsEasyTestCase{"5MXYZ", "ACTGC", "False"},
+        CigarStringsEasyTestCase{"2M3M", "ACTGC", "False"},
+        CigarStringsEasyTestCase{"2M0S3M", "ACTGC", "False"},
+        CigarStringsEasyTestCase{"2M3M", "ACTG", "Invalid cigar"},
+
         // Multi-digit numbers
         CigarStringsEasyTestCase{"12M", std::string(12, 'A'), "True"},
         CigarStringsEasyTestCase{"10M2S", std::string(12, 'A'), "False"}
