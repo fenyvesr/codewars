@@ -51,6 +51,10 @@ jobs:
             --exclude "Tools/.*" \
             --exclude ".*/tests/.*" \
             --exclude ".*/usr/.*" \
+            --exclude-throw-branches \
+            --exclude-unreachable-branches \
+            --exclude-function-lines \
+            --exclude-noncode-lines \
             --html --html-details \
             --output coverage.html \
             --xml-pretty \
