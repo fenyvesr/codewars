@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b180e9fedaa564a7000009a
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b180e9fedaa564a7000009a and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b180e9fedaa564a7000009a.
 ***
 **/
 #include "fixStringCase.h"

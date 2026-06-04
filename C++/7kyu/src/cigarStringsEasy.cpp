@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b64d2cd83d64828ce000039
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b64d2cd83d64828ce000039 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b64d2cd83d64828ce000039.
 ***
 **/
 #include "cigarStringsEasy.h"

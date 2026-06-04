@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b39e3772ae7545f650000fc
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b39e3772ae7545f650000fc and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b39e3772ae7545f650000fc.
 ***
 **/
 #include "removeDuplicateWords.h"

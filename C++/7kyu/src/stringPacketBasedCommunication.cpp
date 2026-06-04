@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b2be37991c7460d17000009
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2be37991c7460d17000009 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b2be37991c7460d17000009.
 ***
 **/
 #include "stringPacketBasedCommunication.h"
