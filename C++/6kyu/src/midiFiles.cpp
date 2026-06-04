@@ -22,5 +22,5 @@ std::vector<int> encode(int n) {
 
 int decode(const std::vector<int>& data) {
     return std::accumulate(data.begin(), data.end(), 0, [&, active = true](int acc, int b) mutable {
-        return active ? (active = b & 0x80, (acc << 7) | (b & 0x7F)) : acc; });
+        return active ? (active = bool(b & 0x80), (acc << 7) | (b & 0x7F)) : acc; }); // NOSONAR - comma operator is intended for performance purposes.
 }
