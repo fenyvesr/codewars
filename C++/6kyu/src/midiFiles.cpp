@@ -12,7 +12,6 @@
 #include "midiFiles.h"
 
 #include <numeric>   /* Needed for std::accumulate */
-#include <algorithm> /* Needed for std::reverse */
 
 std::vector<int> encode(int n) {
     std::vector<int> result;

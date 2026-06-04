@@ -8,6 +8,7 @@ add_library(7kyu src/jumbler.cpp
                  src/fixStringCase.cpp
                  src/smoothNumbers.cpp
                  src/convertTheScore.cpp
+                 src/countCodePoints.cpp
                  src/leonardoNumbers.cpp
                  src/offloadYourWork.cpp
                  src/cigarStringsEasy.cpp
