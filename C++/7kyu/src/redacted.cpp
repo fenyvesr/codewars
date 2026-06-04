@@ -6,7 +6,7 @@
 ***     \brief       Solution for https://www.codewars.com/kata/5b662d286d0db722bd000013
 ***
 ***     \par    File description
-***                  This source contains the solution implementation for https://www.codewars.com/kata/5b662d286d0db722bd000013 and its test function.
+***                  This source contains the solution implementation for https://www.codewars.com/kata/5b662d286d0db722bd000013.
 ***
 **/
 #include "redacted.h"
