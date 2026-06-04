@@ -27,7 +27,7 @@ TEST_P(CigarStringsEasyTest, ReturnsExpectedResult) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     CigarStringsEasyTests,
     CigarStringsEasyTest,
     ::testing::Values(

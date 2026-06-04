@@ -25,7 +25,7 @@ TEST_P(EveryPossibleSumOfTwoDigitsTest, ReturnsExpectedResult) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     EveryPossibleSumOfTwoDigitsTests,
     EveryPossibleSumOfTwoDigitsTest,
     ::testing::Values(
