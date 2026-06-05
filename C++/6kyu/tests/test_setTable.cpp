@@ -40,18 +40,26 @@ INSTANTIATE_TEST_CASE_P(
         },
         // Test with single ghost
         SetTableTestCase{
-            {"Yojne"},
-            {"_____", "_____", "_____", "_____", "_____", "_____", "Yojne", "_____", "_____", "_____", "_____", "_____"}
+            {"Artlu"},
+            {"_____", "_____", "_____", "_____", "_____", "_____", "Artlu", "_____", "_____", "_____", "_____", "_____"}
+        },
+        SetTableTestCase{
+            {"Artlu", "Breca", "Cityl", "Dedaf"},
+            {"Cityl", "_____", "_____", "_____", "_____", "Breca", "Artlu", "_____", "_____", "_____", "_____", "Dedaf"}
         },
         // Test with full list of 12 ghosts
+        SetTableTestCase{
+            {"Sevap", "Syolc", "Sgulg", "Stolb", "Sknoh", "Spord", "Sgnaf", "Shcat", "Sknit", "Snirg", "Senin", "Sliob"},
+            {"Sgnaf", "Sknit", "Senin", "Sliob", "Snirg", "Shcat", "Spord", "Stolb", "Syolc", "Sevap", "Sgulg", "Sknoh"}
+        },
         SetTableTestCase{
             {"Yojne", "Xenna", "Verap", "Ebyam", "Teseb", "Ycuag", "Onets", "Skcaw", "Yrovi", "Tpets", "Lizuf", "Girnu"},
             {"Teseb", "Onets", "Verap", "Xenna", "Ebyam", "Ycuag", "Yojne", "Yrovi", "Lizuf", "Skcaw", "Girnu", "Tpets"}
         },
         // Test with more than 12 ghosts (only first 12 are seated)
         SetTableTestCase{
-            {"Yojne", "Xenna", "Verap", "Ebyam", "Teseb", "Ycuag", "Onets", "Skcaw", "Yrovi", "Tpets", "Lizuf", "Girnu", "Extra", "More"},
-            {"Teseb", "Onets", "Verap", "Xenna", "Ebyam", "Ycuag", "Yojne", "Yrovi", "Lizuf", "Skcaw", "Girnu", "Tpets"}
+            {"Egdob", "Liame", "Skceg", "Yesba", "Cinid", "Sallo", "Sumac", "Triks", "Sipat", "Elona", "Sreod", "Deyab", "Dlaps", "Nevey", "Htron"},
+            {"Cinid", "Sreod", "Elona", "Egdob", "Deyab", "Yesba", "Liame", "Sipat", "Sallo", "Skceg", "Sumac", "Triks"}
         }
     )
 );
