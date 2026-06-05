@@ -24,7 +24,7 @@ TEST_P(AncestorVariationsTest, ReturnsExpectedValue) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     AncestorVariationsTests,
     AncestorVariationsTest,
     ::testing::Values(

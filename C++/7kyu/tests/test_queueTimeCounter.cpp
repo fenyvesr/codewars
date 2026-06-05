@@ -29,7 +29,7 @@ TEST_P(QueueTimeCounterTest, ReturnsExpectedTime) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     QueueTimeCounterTests,
     QueueTimeCounterTest,
     ::testing::Values(

@@ -25,7 +25,7 @@ TEST_P(FixStringCaseTest, ReturnsExpectedResult) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     FixStringCaseTests,
     FixStringCaseTest,
     ::testing::Values(

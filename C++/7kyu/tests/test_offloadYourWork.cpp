@@ -36,7 +36,7 @@ TEST_P(OffloadYourWorkTest, ReturnsExpectedResult) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     OffloadYourWorkTests,
     OffloadYourWorkTest,
     ::testing::Values(

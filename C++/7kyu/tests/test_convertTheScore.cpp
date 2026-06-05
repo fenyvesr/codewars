@@ -28,7 +28,7 @@ TEST_P(ConvertTheScoreTest, ConvertsCorrectly) {
     EXPECT_EQ(convertTheScore(GetParam().input), GetParam().expected);
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     ConvertTheScoreTests,
     ConvertTheScoreTest,
     ::testing::Values(

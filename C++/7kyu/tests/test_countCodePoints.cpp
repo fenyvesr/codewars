@@ -21,7 +21,7 @@ TEST_P(CountCodepointsTest, CountsCorrectly) {
     EXPECT_EQ(CountCodepoints(GetParam().input), GetParam().expected);
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     CountCodepointsTests,
     CountCodepointsTest,
     ::testing::Values(
