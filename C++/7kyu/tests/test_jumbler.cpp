@@ -29,7 +29,7 @@ TEST_P(JumblerTest, ReturnsExpectedResult) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     JumblerTests,
     JumblerTest,
     ::testing::Values(

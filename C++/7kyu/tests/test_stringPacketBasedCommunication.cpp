@@ -25,7 +25,7 @@ TEST_P(StringPacketBasedCommunicationTest, ConvertsPacketCorrectly) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     ValidPackets,
     StringPacketBasedCommunicationTest,
     ::testing::Values(

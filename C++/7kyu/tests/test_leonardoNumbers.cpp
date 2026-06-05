@@ -37,7 +37,7 @@ TEST_P(LeonardoNumbersTest, ReturnsExpectedSequence) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     LeonardoNumbersTests,
     LeonardoNumbersTest,
     ::testing::Values(

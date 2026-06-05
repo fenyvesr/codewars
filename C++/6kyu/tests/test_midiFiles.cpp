@@ -31,7 +31,7 @@ TEST_P(MidiFilesTest, ReturnsExpectedEncoding) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     MidiFilesTests,
     MidiFilesTest,
     ::testing::Values(
@@ -75,7 +75,7 @@ TEST_P(MidiFilesDecodeTest, ReturnsExpectedDecoding) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     MidiFilesDecodeTests,
     MidiFilesDecodeTest,
     ::testing::Values(
