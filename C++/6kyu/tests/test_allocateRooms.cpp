@@ -40,20 +40,22 @@ std::string sourceDirectory() {
     return pos == std::string::npos ? std::string{} : file.substr(0, pos);
 }
 
-std::ifstream openDataFile() {
-    const std::vector<std::string> candidates{
-        "allocateRooms_cases.txt",
-        "6kyu/tests/data/allocateRooms_cases.txt",
-        sourceDirectory() + "/data/allocateRooms_cases.txt",
-        sourceDirectory() + "/allocateRooms_cases.txt"
-    };
-
+std::ifstream openDataFile(const std::vector<std::string>& candidates) {
     for (const auto& path : candidates) {
         std::ifstream in{path};
         if (in) return in;
     }
 
     throw std::runtime_error{"Could not open allocateRooms_cases.txt"};
+}
+
+std::ifstream openDataFile() {
+    return openDataFile({
+        "allocateRooms_cases.txt",
+        "6kyu/tests/data/allocateRooms_cases.txt",
+        sourceDirectory() + "/data/allocateRooms_cases.txt",
+        sourceDirectory() + "/allocateRooms_cases.txt"
+    });
 }
 
 std::string nextToken(std::istream& in) {
@@ -127,6 +129,34 @@ const std::vector<AllocateRoomsTestCase>& allocateRoomsTestCases() {
 }
 
 } // namespace
+
+
+TEST(AllocateRoomsParserTest, OpenDataFileThrowsForMissingFile) {
+    EXPECT_THROW(
+        static_cast<void>(openDataFile({"definitely_missing_allocateRooms_cases.txt"})),
+        std::runtime_error
+    );
+}
+
+TEST(AllocateRoomsParserTest, NextTokenThrowsOnEmptyInput) {
+    std::istringstream in{};
+    EXPECT_THROW(static_cast<void>(nextToken(in)), std::runtime_error);
+}
+
+TEST(AllocateRoomsParserTest, NextTokenThrowsOnCommentOnlyInput) {
+    std::istringstream in{"# only a comment"};
+    EXPECT_THROW(static_cast<void>(nextToken(in)), std::runtime_error);
+}
+
+TEST(AllocateRoomsParserTest, ExpectTokenThrowsOnWrongToken) {
+    std::istringstream in{"CUSTOMERS"};
+    EXPECT_THROW(expectToken(in, "COUNT"), std::runtime_error);
+}
+
+TEST(AllocateRoomsParserTest, ExpectTokenThrowsOnEmptyInput) {
+    std::istringstream in{};
+    EXPECT_THROW(expectToken(in, "COUNT"), std::runtime_error);
+}
 
 class AllocateRoomsTest : public ::testing::TestWithParam<AllocateRoomsTestCase> {};
 
