@@ -97,7 +97,7 @@ jobs:
         run: |
           ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 \
             --out-dir bw-output \
-            cmake --build build-sonar
+            cmake --build build-sonar --parallel --verbose
 
       # Run tests so the instrumented executable generates coverage data.
       #

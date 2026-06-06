@@ -67,7 +67,7 @@ jobs:
 
       # Build the project so CodeQL can trace compilation.
       - name: Build
-        run: cmake --build build-codeql
+        run: cmake --build build-codeql --parallel --verbose
 
       # Run CodeQL analysis and upload results automatically.
       - name: Perform CodeQL Analysis

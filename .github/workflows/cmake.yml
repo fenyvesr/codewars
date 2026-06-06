@@ -37,7 +37,7 @@ jobs:
 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}}\C++\build --config ${{env.BUILD_TYPE}}
+      run: cmake --build ${{github.workspace}}\C++\build --config ${{env.BUILD_TYPE}} --parallel --verbose
 
     - name: Test
       working-directory: ${{github.workspace}}\C++\build
@@ -54,7 +54,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-      uses: actions/checkout@v4
+        uses: actions/checkout@v4
       
       - name: Install range-v3 locally
         shell: bash

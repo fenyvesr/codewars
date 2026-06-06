@@ -51,7 +51,7 @@ jobs:
         run: cmake -B build-valgrind -G Ninja -DCMAKE_BUILD_TYPE=Debug
 
       - name: Build
-        run: cmake --build build-valgrind
+        run: cmake --build build-valgrind --parallel --verbose
 
       # CTest can run tests through Valgrind using CTEST_MEMORYCHECK_COMMAND.
       #

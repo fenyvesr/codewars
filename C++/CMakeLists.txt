@@ -110,6 +110,12 @@ if(BUILD_TESTING)
             GTest::gtest_main
     )
 
+    configure_file(
+        ${PROJECT_SOURCE_DIR}/6kyu/tests/data/allocateRooms_cases.txt
+        ${CMAKE_CURRENT_BINARY_DIR}/allocateRooms_cases.txt
+        COPYONLY
+    )
+
     include(GoogleTest)
     gtest_discover_tests(CodeWarsTests)
 endif()

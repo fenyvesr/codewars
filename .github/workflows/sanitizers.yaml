@@ -64,7 +64,7 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS="-fsanitize=address,undefined"
 
       - name: Build
-        run: cmake --build build-sanitize
+        run: cmake --build build-sanitize --parallel --verbose
 
       # Run tests through CTest.
       #

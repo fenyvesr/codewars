@@ -56,7 +56,7 @@ jobs:
 
       # Build first so generated headers/sources exist if your project creates any.
       - name: Build
-        run: cmake --build build-analysis
+        run: cmake --build build-analysis --parallel --verbose
 
       # Run clang-tidy only on project source/header files.
       #

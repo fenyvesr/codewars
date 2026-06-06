@@ -42,7 +42,7 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS="--coverage"
 
       - name: Build
-        run: cmake --build build-coverage
+        run: cmake --build build-coverage --parallel --verbose
 
       - name: Run tests
         run: ctest --test-dir build-coverage --output-on-failure
