@@ -66,6 +66,7 @@ jobs:
         run: |
           find . \
             -path ./build-analysis -prune -o \
+            -path ./Tools -prune -o \
             \( -name "*.cpp" -o -name "*.cxx" -o -name "*.cc" -o -name "*.hpp" -o -name "*.h" \) \
             -print > clang_tidy_files.txt
 
@@ -88,4 +89,5 @@ jobs:
             --suppress=missingIncludeSystem \
             --inline-suppr \
             --error-exitcode=1 \
-            -ibuild-analysis/_deps
+            -ibuild-analysis/_deps \
+            -iTools
