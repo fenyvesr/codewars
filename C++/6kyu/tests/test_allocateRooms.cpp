@@ -2,6 +2,8 @@
 
 #include "allocateRooms.h"
 
+#include <algorithm> /* Needed for std::any_of */
+
 struct AllocateRoomsTestCase {
     std::vector<std::vector<int>> customers;
     // list of acceptable expected allocations; any match is considered correct

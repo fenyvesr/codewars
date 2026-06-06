@@ -19,12 +19,11 @@
 #include <queue>      /* Needed for std::priority_queue */
 #include <tuple>      /* Needed for std::tuple */
 #include <vector>     /* Needed for std::vector */
-#include <cstddef>    /* Needed for std::size_t */
 #include <utility>    /* Needed for std::pair */
 #include <functional> /* Needed for std::greater */
 
 std::vector<int> allocateRooms(const std::vector<std::vector<int>>& customers) {
-    auto mapping = ranges::views::iota(std::size_t{0}, customers.size())
+    auto mapping = ranges::views::iota(0, static_cast<int>(customers.size()))
                  | ranges::views::transform([&customers](auto i) { return std::tuple{customers[i][0], customers[i][1], static_cast<int>(i)}; })
                  | ranges::to<std::vector>()
                  | ranges::actions::sort;
