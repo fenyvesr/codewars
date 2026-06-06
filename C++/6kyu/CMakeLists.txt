@@ -1,6 +1,7 @@
 include_directories("${PROJECT_SOURCE_DIR}/6kyu/include")
 
-add_library(6kyu src/midiFiles.cpp
+add_library(6kyu src/setTable.cpp
+                 src/midiFiles.cpp
                  src/restoreBrackets.cpp
                  src/ancestorVariations.cpp
                  )
