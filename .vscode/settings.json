@@ -62,7 +62,7 @@
     },
     "cmake.sourceDirectory": "${workspaceFolder}/C++",
     "cmake.buildDirectory": "${workspaceFolder}/C++/build",
-    "cmake.cmakePath": "${workspaceFolder}/C++/Tools/cmake-4.3.3/bin/cmake.exe",
+    "cmake.cmakePath": "${workspaceFolder}/C++/Tools/cmake-4.3.3-windows-x86_64/bin/cmake.exe",
     "cSpell.words": [
         "Kata"
     ]

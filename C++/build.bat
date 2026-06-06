@@ -12,7 +12,7 @@ if /I "%~1"=="help" goto :help
 if /I "%~1"=="-h" goto :help
 if /I "%~1"=="--help" goto :help
 
-set "CMAKE_PATH=%~dp0Tools\cmake-4.3.3\bin"
+set "CMAKE_PATH=%~dp0Tools\cmake-4.3.3-windows-x86_64\bin"
 set "DOXYGEN_PATH=%~dp0Tools\doxygen-1.17.0.windows.x64.bin"
 set "BUILD_DIR=%~dp0build"
 set "DOC_DIR=%~dp0doc"
