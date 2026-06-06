@@ -24,7 +24,7 @@ std::vector<std::string> set_table(const std::vector<std::string>& the_dead){
     for(auto& name : the_dead)
         for(std::size_t k{ std::string("QUTHCRDMZWEVOXING_JFABKPLY_S").find(name[0]) / 9 }, c{ 3 * k }; d[k] < tableSize; ++d[k]){
             std::size_t i{ (c + tableSize + (d[k] % 2 ? -int(d[k] + 1) / 2 : d[k] / 2)) % tableSize };
-            if( table[i] == "_____" ) { table[i] = name, ++d[k] ; break; }
+            if( table[i] == "_____" ) { table[i] = name; ++d[k] ; break; }
         }
     return table;
 }
