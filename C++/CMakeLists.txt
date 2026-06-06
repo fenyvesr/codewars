@@ -74,6 +74,7 @@ if(BUILD_TESTING)
         6kyu/tests/test_largestGreatestCommonDivisor.cpp
         6kyu/tests/test_midiFiles.cpp
         6kyu/tests/test_restoreBrackets.cpp
+        6kyu/tests/test_setTable.cpp
         6kyu/tests/test_snakeEye.cpp
         7kyu/tests/test_cigarStringsEasy.cpp
         7kyu/tests/test_convertTheScore.cpp

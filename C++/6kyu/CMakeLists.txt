@@ -1,4 +1,5 @@
-add_library(6kyu src/midiFiles.cpp
+add_library(6kyu src/setTable.cpp
+                 src/midiFiles.cpp
                  src/allocateRooms.cpp
                  src/restoreBrackets.cpp
                  src/ancestorVariations.cpp
