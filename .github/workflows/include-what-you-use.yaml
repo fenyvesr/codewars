@@ -32,6 +32,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install range-v3 locally
+        shell: bash
+        run: |
+          mkdir -p Tools
+          git clone --depth 1 https://github.com/ericniebler/range-v3.git Tools/range-v3
+
       - name: Install IWYU
         run: |
           sudo apt-get update
@@ -54,4 +60,4 @@ jobs:
             -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use
 
       - name: Build with IWYU
-        run: cmake --build build-iwyu
+        run: cmake --build build-iwyu --parallel --verbose

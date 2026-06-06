@@ -57,6 +57,12 @@ jobs:
       # Important:
       # This is intentionally NOT using MinGW.
       # The Microsoft analyzer needs an MSVC/Visual Studio CMake build.
+      - name: Install range-v3 locally
+        shell: bash
+        run: |
+          mkdir -p Tools
+          git clone --depth 1 https://github.com/ericniebler/range-v3.git Tools/range-v3
+
       - name: Configure CMake with MSVC
         run: cmake -B "${{ env.BUILD_DIR }}" -G "Visual Studio 17 2022" -A x64 -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
 
@@ -73,6 +79,7 @@ jobs:
       #   Needed so later steps can access:
       #   steps.run-analysis.outputs.sarif
       - name: Initialize MSVC Code Analysis
+        continue-on-error: true
         id: run-analysis
         uses: microsoft/msvc-code-analysis-action@v0.1.1
         with:

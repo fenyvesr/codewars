@@ -52,6 +52,12 @@ jobs:
       #
       # gcovr is used to convert GCC/gcov coverage data
       # into SonarQube/SonarCloud-compatible XML.
+      - name: Install range-v3 locally
+        shell: bash
+        run: |
+          mkdir -p Tools
+          git clone --depth 1 https://github.com/ericniebler/range-v3.git Tools/range-v3
+
       - name: Install build tools
         run: |
           sudo apt-get update
@@ -91,7 +97,7 @@ jobs:
         run: |
           ./build-wrapper-linux-x86/build-wrapper-linux-x86-64 \
             --out-dir bw-output \
-            cmake --build build-sonar
+            cmake --build build-sonar --parallel --verbose
 
       # Run tests so the instrumented executable generates coverage data.
       #

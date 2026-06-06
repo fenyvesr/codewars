@@ -33,6 +33,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install range-v3 locally
+        shell: bash
+        run: |
+          mkdir -p Tools
+          git clone --depth 1 https://github.com/ericniebler/range-v3.git Tools/range-v3
+
       - name: Install analysis tools
         run: |
           sudo apt-get update
@@ -50,7 +56,7 @@ jobs:
 
       # Build first so generated headers/sources exist if your project creates any.
       - name: Build
-        run: cmake --build build-analysis
+        run: cmake --build build-analysis --parallel --verbose
 
       # Run clang-tidy only on project source/header files.
       #
@@ -60,6 +66,7 @@ jobs:
         run: |
           find . \
             -path ./build-analysis -prune -o \
+            -path ./Tools -prune -o \
             \( -name "*.cpp" -o -name "*.cxx" -o -name "*.cc" -o -name "*.hpp" -o -name "*.h" \) \
             -print > clang_tidy_files.txt
 
@@ -82,4 +89,5 @@ jobs:
             --suppress=missingIncludeSystem \
             --inline-suppr \
             --error-exitcode=1 \
-            -ibuild-analysis/_deps
+            -ibuild-analysis/_deps \
+            -iTools
