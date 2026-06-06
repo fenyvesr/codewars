@@ -8,6 +8,22 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+
+# ------------------------------------------------------------
+# Optional local third-party libraries
+# ------------------------------------------------------------
+set(RANGE_V3_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/Tools/range-v3/include")
+
+if(EXISTS "${RANGE_V3_INCLUDE_DIR}/range/v3/all.hpp")
+    add_library(range-v3 INTERFACE)
+    target_include_directories(range-v3 INTERFACE "${RANGE_V3_INCLUDE_DIR}")
+else()
+    message(WARNING
+        "range-v3 was not found at ${RANGE_V3_INCLUDE_DIR}. "
+        "Clone it locally with: git clone https://github.com/ericniebler/range-v3.git Tools/range-v3"
+    )
+endif()
+
 # ------------------------------------------------------------
 # Project libraries
 # ------------------------------------------------------------
@@ -24,6 +40,7 @@ target_link_libraries(CodeWars
         8kyu
         7kyu
         6kyu
+        $<$<TARGET_EXISTS:range-v3>:range-v3>
 )
 
 target_include_directories(CodeWars
@@ -52,6 +69,7 @@ if(BUILD_TESTING)
     FetchContent_MakeAvailable(googletest)
 
     add_executable(CodeWarsTests
+        6kyu/tests/test_allocateRooms.cpp
         6kyu/tests/test_ancestorVariations.cpp
         6kyu/tests/test_largestGreatestCommonDivisor.cpp
         6kyu/tests/test_midiFiles.cpp

@@ -43,6 +43,12 @@ jobs:
       #
       # queries:
       #   security-and-quality = more checks than the default security-only set.
+      - name: Install range-v3 locally
+        shell: bash
+        run: |
+          mkdir -p Tools
+          git clone --depth 1 https://github.com/ericniebler/range-v3.git Tools/range-v3
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v4
         with:

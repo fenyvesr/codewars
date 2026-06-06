@@ -32,6 +32,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install range-v3 locally
+        shell: bash
+        run: |
+          mkdir -p Tools
+          git clone --depth 1 https://github.com/ericniebler/range-v3.git Tools/range-v3
+
       - name: Install IWYU
         run: |
           sudo apt-get update
