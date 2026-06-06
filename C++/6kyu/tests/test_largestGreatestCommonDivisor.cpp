@@ -26,7 +26,7 @@ TEST_P(LargestGreatestCommonDivisorTest, ReturnsExpectedValue) {
     );
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     LargestGreatestCommonDivisorTests,
     LargestGreatestCommonDivisorTest,
     ::testing::Values(
